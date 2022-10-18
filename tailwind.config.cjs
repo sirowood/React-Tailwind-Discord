@@ -8,6 +8,7 @@ module.exports = {
 				sans: ['Whitney', 'Open Sans', ...defaultTheme.fontFamily.sans],
 			},
 			colors: {
+				brand: '#5865F2',
 				gray: {
 					50: '#ECEDEE',
 					100: '#DCDDDE',
