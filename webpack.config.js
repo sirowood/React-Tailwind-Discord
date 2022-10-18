@@ -25,6 +25,10 @@ module.exports = {
 				test: /\.jsx?$/,
 				use: 'babel-loader',
 			},
+			{
+				test: /\.css$/i,
+				use: ['style-loader', 'css-loader', 'postcss-loader'],
+			},
 		],
 	},
 	plugins: [new HtmlWebpackPlugin({ template: './public/index.html' })],
