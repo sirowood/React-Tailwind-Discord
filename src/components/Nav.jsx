@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import DiscordIcon from '../../public/icons/DiscordIcon';
-import ReactIcon from '../../public/icons/ReactIcon';
-import TailwindIcon from '../../public/icons/TailwindIcon';
-import NextIcon from '../../public/icons/NextIcon';
+import { DiscordIcon } from './icons';
+import mirage from '../../public/channels/mirage.png';
+import next from '../../public/channels/next.png';
+import tailwind from '../../public/channels/tailwind.png';
 
 const channels = [
-	{ id: 1, icon: <ReactIcon />},
-	{ id: 2, icon: <TailwindIcon />},
-	{ id: 3, icon: <NextIcon />},
+	{ id: 1, src: mirage },
+	{ id: 2, src: next },
+	{ id: 3, src: tailwind },
 ];
 
 export default function Nav() {
@@ -23,7 +23,7 @@ export default function Nav() {
 
 			{channels.map((item) => (
 				<NavLink href={`/channels/${item.id}`} key={item.id}>
-				{item.icon}
+					<img src={item.src} alt="" />
 				</NavLink>
 			))}
 		</div>

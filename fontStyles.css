@@ -32,3 +32,10 @@
 	font-weight: 700;
 	font-style: normal;
 }
+
+@font-face {
+	font-family: 'Ginto';
+	src: url('./public/ginto/ginto-semibold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+}
