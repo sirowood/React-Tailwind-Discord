@@ -21,9 +21,9 @@ export default function Nav() {
 
 			<hr className="border-t-gray-550/[.48] border-t-2 rounded mx-2" />
 
-			{servers.map((item) => (
-				<NavLink href={`/servers/${item.id}`} key={item.id}>
-					<img src={item.src} alt="" />
+			{servers.map((server) => (
+				<NavLink href={`/servers/${server.id}/channels/1`} key={server.id}>
+					<img src={server.src} alt="" />
 				</NavLink>
 			))}
 		</div>
@@ -32,12 +32,14 @@ export default function Nav() {
 
 function NavLink({ href, children }) {
 	const { pathname } = useLocation();
+	const active = href.split('/')[2] === pathname.split('/')[2];
+
 	return (
 		<Link to={href} className="relative block group">
 			<div className="absolute flex items-center -left-3 h-full">
 				<div
 					className={`${
-						pathname === href
+						active
 							? 'h-10'
 							: 'h-5 scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100'
 					}
@@ -48,7 +50,7 @@ function NavLink({ href, children }) {
 			<div className="group-active:translate-y-px">
 				<div
 					className={`${
-						pathname === href
+						active
 							? 'bg-brand text-white rounded-2xl'
 							: 'group-hover:bg-brand group-hover:text-white group-hover:rounded-2xl rounded-3xl'
 					} 

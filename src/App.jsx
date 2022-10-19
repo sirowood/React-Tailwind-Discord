@@ -15,7 +15,7 @@ export default function App() {
 			<div className="flex flex-row text-gray-100 h-screen">
 				<Nav />
 				<Routes>
-					<Route path="/servers/:id" element={<Server />} />
+					<Route path="/servers/:id/*" element={<Server />} />
 					<Route path="/servers/@me" element={<Dashboard />} />
 					<Route path="*" element={<Navigate to="/servers/@me" />} />
 				</Routes>
