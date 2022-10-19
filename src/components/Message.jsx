@@ -3,7 +3,7 @@ import React from 'react';
 export default function Message() {
 	return (
 		<div className="bg-gray-700 flex-1 flex flex-col ">
-			<div className="px-3 h-12 flex items-center flex-shrink-0 shadow-md">
+			<div className="px-3 h-12 flex items-center flex-shrink-0 shadow-md text-white font-semibold">
 				Main
 			</div>
 			<div className="p-3 space-y-4 overflow-y-scroll">

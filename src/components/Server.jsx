@@ -6,8 +6,9 @@ export default function Server() {
 		<div className="bg-gray-900 p-3 space-y-2 overflow-y-scroll">
 			<div
 				className="bg-gray-700 text-gray-100 w-12 h-12
-      flex items-center justify-center rounded-full 
-      hover:bg-brand hover:text-white transition duration-200"
+      flex items-center justify-center rounded-3xl 
+      hover:bg-brand hover:text-white hover:cursor-pointer hover:rounded-2xl
+			transition-all duration-200"
 			>
 				<DiscordIcon className="w-7 h-5" />
 			</div>
