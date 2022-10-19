@@ -1,5 +1,5 @@
 import Nav from './Nav';
 import Dashboard from './Dashboard';
-import Channel from './Channel';
+import Server from './Server';
 
-export { Nav, Dashboard, Channel };
+export { Nav, Dashboard, Server };

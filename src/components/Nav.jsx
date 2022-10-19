@@ -2,27 +2,27 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Discord as DiscordIcon } from './icons';
-import mirage from '../../public/channels/mirage.png';
-import next from '../../public/channels/next.png';
-import tailwind from '../../public/channels/tailwind.png';
+import mirage from '../../public/servers/mirage.png';
+import next from '../../public/servers/next.png';
+import tailwind from '../../public/servers/tailwind.png';
 
-const channels = [
-  { id: "1", src: tailwind },
-  { id: "2", src: next },
-  { id: "3", src: mirage },
+const servers = [
+	{ id: '1', src: tailwind },
+	{ id: '2', src: next },
+	{ id: '3', src: mirage },
 ];
 
 export default function Nav() {
 	return (
 		<div className="w-18 bg-gray-900 p-3 space-y-2 overflow-y-scroll flex-shrink-0">
-			<NavLink href="/channels/@me">
+			<NavLink href="/servers/@me">
 				<DiscordIcon className="w-7 h-5" />
 			</NavLink>
 
 			<hr className="border-t-gray-550/[.48] border-t-2 rounded mx-2" />
 
-			{channels.map((item) => (
-				<NavLink href={`/channels/${item.id}`} key={item.id}>
+			{servers.map((item) => (
+				<NavLink href={`/servers/${item.id}`} key={item.id}>
 					<img src={item.src} alt="" />
 				</NavLink>
 			))}
