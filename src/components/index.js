@@ -1,9 +1,5 @@
-import Server from "./Server";
-import Channel from "./Channel";
-import Message from "./Message";
+import Server from './Server';
+import Channel from './Channel';
+import Message from './Message';
 
-export {
-  Server,
-  Channel,
-  Message,
-};
+export { Server, Channel, Message };
