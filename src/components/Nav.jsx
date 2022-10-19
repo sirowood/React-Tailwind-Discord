@@ -36,7 +36,7 @@ export default function Nav() {
 				</div>
 			</Link>
 			<Link
-				to="/servers/1"
+				to="/servers"
 				className="bg-gray-700 text-gray-100 w-12 h-12
       flex items-center justify-center rounded-3xl 
       hover:bg-brand hover:text-white hover:cursor-pointer hover:rounded-2xl

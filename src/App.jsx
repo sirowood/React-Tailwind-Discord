@@ -10,7 +10,7 @@ export default function App() {
 			<div className="flex flex-row text-gray-100 h-screen">
 				<Nav />
 				<Routes>
-					<Route path="/servers/:id" element={<Channel />} />
+					<Route path="/servers" element={<Channel />} />
 					<Route path="/" element={<Channel />} />
 				</Routes>
 			</div>
