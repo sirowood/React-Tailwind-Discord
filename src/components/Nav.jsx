@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import DiscordIcon from './DiscordIcon';
+import DiscordIcon from '../../public/servers/DiscordIcon';
+import ReactIcon from '../../public/servers/ReactIcon';
+import TailwindIcon from '../../public/servers/TailwindIcon';
+import NextIcon from '../../public/servers/NextIcon';
 
 export default function Nav() {
 	return (
@@ -9,7 +12,16 @@ export default function Nav() {
 			<NavLink href="/">
 				<DiscordIcon className="w-7 h-5" />
 			</NavLink>
-			<NavLink href="/servers">S1</NavLink>
+			<hr className='border-t-gray-550/[.48] border-t-2 rounded mx-2'/>
+			<NavLink href="/servers">
+				<ReactIcon className="w-8 h-8" />
+			</NavLink>
+			<NavLink href="/servers">
+				<NextIcon className="w-8 h-8" />
+			</NavLink>
+			<NavLink href="/servers">
+				<TailwindIcon className="w-8 h-8" />
+			</NavLink>
 		</div>
 	);
 };
@@ -39,7 +51,7 @@ function NavLink({ href, children }) {
 						bg-gray-700 text-gray-100 w-12 h-12
 						flex items-center justify-center 
 						hover:cursor-pointer
-						transition-all duration-200`}
+						transition-all duration-200 overflow-hidden`}
 				>
 					{children}
 				</div>
