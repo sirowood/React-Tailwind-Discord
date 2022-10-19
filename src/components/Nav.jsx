@@ -1,10 +1,16 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import DiscordIcon from '../../public/servers/DiscordIcon';
-import ReactIcon from '../../public/servers/ReactIcon';
-import TailwindIcon from '../../public/servers/TailwindIcon';
-import NextIcon from '../../public/servers/NextIcon';
+import DiscordIcon from '../../public/icons/DiscordIcon';
+import ReactIcon from '../../public/icons/ReactIcon';
+import TailwindIcon from '../../public/icons/TailwindIcon';
+import NextIcon from '../../public/icons/NextIcon';
+
+const channels = [
+	{ id: 1, icon: <ReactIcon />},
+	{ id: 2, icon: <TailwindIcon />},
+	{ id: 3, icon: <NextIcon />},
+];
 
 export default function Nav() {
 	return (
@@ -12,16 +18,14 @@ export default function Nav() {
 			<NavLink href="/channels/@me">
 				<DiscordIcon className="w-7 h-5" />
 			</NavLink>
+
 			<hr className="border-t-gray-550/[.48] border-t-2 rounded mx-2" />
-			<NavLink href="/channels/1">
-				<ReactIcon className="w-8 h-8" />
-			</NavLink>
-			<NavLink href="/channels/2">
-				<NextIcon className="w-8 h-8" />
-			</NavLink>
-			<NavLink href="/channels/3">
-				<TailwindIcon className="w-8 h-8" />
-			</NavLink>
+
+			{channels.map((item) => (
+				<NavLink href={`/channels/${item.id}`} key={item.id}>
+				{item.icon}
+				</NavLink>
+			))}
 		</div>
 	);
 }

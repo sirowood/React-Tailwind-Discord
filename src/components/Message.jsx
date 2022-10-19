@@ -8,7 +8,7 @@ export default function Message() {
 			</div>
 			<div className="p-3 space-y-4 overflow-y-scroll">
 				{[...Array(10)].map((_, i) => (
-					<p>
+					<p key={`message-${i.toString()}`}>
 						Message {i}.Lorem ipsum dolor sit amet. Ex officiis culpa et placeat
 						explicabo sed sunt nobis qui voluptatem amet At officiis totam vel
 						excepturi ducimus et omnis error. Non dolore pariatur non molestiae
