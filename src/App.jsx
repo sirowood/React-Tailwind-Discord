@@ -1,6 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Nav, Channel } from './components';
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	Navigate,
+} from 'react-router-dom';
+import { Nav, Channel, Dashboard } from './components';
 import '../fontStyles.css';
 import './app.css';
 
@@ -10,8 +15,9 @@ export default function App() {
 			<div className="flex flex-row text-gray-100 h-screen">
 				<Nav />
 				<Routes>
-					<Route path="/servers" element={<div>Server 1</div>} />
-					<Route path="/" element={<Channel />} />
+					<Route path="/channels/:id" element={<Channel />} />
+					<Route path="/channels/@me" element={<Dashboard />} />
+					<Route path="*" element={<Navigate to="/channels/@me" />} />
 				</Routes>
 			</div>
 		</Router>

@@ -9,22 +9,22 @@ import NextIcon from '../../public/servers/NextIcon';
 export default function Nav() {
 	return (
 		<div className="w-18 bg-gray-900 p-3 space-y-2 overflow-y-scroll flex-shrink-0">
-			<NavLink href="/">
+			<NavLink href="/channels/@me">
 				<DiscordIcon className="w-7 h-5" />
 			</NavLink>
-			<hr className='border-t-gray-550/[.48] border-t-2 rounded mx-2'/>
-			<NavLink href="/servers">
+			<hr className="border-t-gray-550/[.48] border-t-2 rounded mx-2" />
+			<NavLink href="/channels/1">
 				<ReactIcon className="w-8 h-8" />
 			</NavLink>
-			<NavLink href="/servers">
+			<NavLink href="/channels/2">
 				<NextIcon className="w-8 h-8" />
 			</NavLink>
-			<NavLink href="/servers">
+			<NavLink href="/channels/3">
 				<TailwindIcon className="w-8 h-8" />
 			</NavLink>
 		</div>
 	);
-};
+}
 
 function NavLink({ href, children }) {
 	const { pathname } = useLocation();
@@ -56,5 +56,6 @@ function NavLink({ href, children }) {
 					{children}
 				</div>
 			</div>
-		</Link>)
-};
+		</Link>
+	);
+}

@@ -15,7 +15,7 @@ module.exports = {
 		port: 3000,
 		open: true,
 		compress: true,
-		static: path.resolve(__dirname, 'dist'),
+		static: path.resolve(__dirname, '/dist'),
 		historyApiFallback: true,
 	},
 	devtool: 'source-map',
