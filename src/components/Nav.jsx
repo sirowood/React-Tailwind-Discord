@@ -9,9 +9,7 @@ export default function Nav() {
 			<NavLink href="/">
 				<DiscordIcon className="w-7 h-5" />
 			</NavLink>
-			<NavLink href="/servers">
-				TW
-			</NavLink>
+			<NavLink href="/servers">S1</NavLink>
 		</div>
 	);
 };
@@ -36,10 +34,10 @@ function NavLink({ href, children }) {
 					className={`${
 						pathname === href
 							? 'bg-brand text-white rounded-2xl'
-							: 'group-hover:bg-brand group-hover:text-white group-hover:rounded-2xl'
+							: 'group-hover:bg-brand group-hover:text-white group-hover:rounded-2xl rounded-3xl'
 					} 
 						bg-gray-700 text-gray-100 w-12 h-12
-						flex items-center justify-center rounded-3xl 
+						flex items-center justify-center 
 						hover:cursor-pointer
 						transition-all duration-200`}
 				>
