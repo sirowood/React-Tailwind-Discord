@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { DiscordIcon } from './icons';
+import { Discord as DiscordIcon } from './icons';
 import mirage from '../../public/channels/mirage.png';
 import next from '../../public/channels/next.png';
 import tailwind from '../../public/channels/tailwind.png';
 
 const channels = [
-	{ id: 1, src: mirage },
-	{ id: 2, src: next },
-	{ id: 3, src: tailwind },
+  { id: "1", src: tailwind },
+  { id: "2", src: next },
+  { id: "3", src: mirage },
 ];
 
 export default function Nav() {

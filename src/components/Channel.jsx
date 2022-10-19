@@ -1,20 +1,16 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import {
-	AddPersonIcon,
-	BookIcon,
-	CheckIcon,
-	ChevronIcon,
-	SpeakerphoneIcon,
-	VerifiedIcon,
-} from './icons';
+import data from '../../data.json';
+import * as Icons from './icons';
 
 export default function Channel() {
 	const { id } = useParams();
 	return (
 		<div className="flex flex-1 flex-row">
 			<div className="bg-gray-800 w-60 flex flex-col">
+				{/* Header of channel */}
 				<button
 					type="button"
 					className="h-12 px-4 flex items-center flex-shrink-0
@@ -22,33 +18,32 @@ export default function Channel() {
 						shadow-sm hover:bg-gray-550/[0.4] transition"
 				>
 					<div className="relative w-4 h-4 mr-1">
-						<VerifiedIcon className="absolute w-4 h-4 text-gray-550" />
-						<CheckIcon className="absolute w-4 h-4" />
+						<Icons.Verified className="absolute w-4 h-4 text-gray-550" />
+						<Icons.Check className="absolute w-4 h-4" />
 					</div>
 					Server {id}
-					<ChevronIcon className="w-[18px] h-[18px] ml-auto opacity-80" />
+					<Icons.Chevron className="w-[18px] h-[18px] ml-auto opacity-80" />
 				</button>
-				<div className="text-gray-300 overflow-y-scroll font-medium mt-[17px] mr-2">
-					<div className="space-y-0.5">
-						<a
-							href="#"
-							className="flex items-center ml-2 px-2 py-1 rounded text-gray-300
-								hover:bg-gray-550/[0.4] hover:text-gray-100 group"
-						>
-							<BookIcon className="w-5 h-5 mr-1.5 text-gray-300" />
-							welcome
-							<AddPersonIcon className="w-4 h-4 ml-auto text-gray-200 opacity-0 group-hover:opacity-100 hover:text-gray-100" />
-						</a>
-						<a
-							href="#"
-							className="flex items-center ml-2 px-2 py-1 rounded text-gray-300
-								hover:bg-gray-550/[0.4] hover:text-gray-100 group"
-						>
-							<SpeakerphoneIcon className="w-5 h-5 mr-1.5 text-gray-300" />
-							announcements
-							<AddPersonIcon className="w-4 h-4 ml-auto text-gray-200 opacity-0 group-hover:opacity-100 hover:text-gray-100" />
-						</a>
+
+				{/* Body of channel */}
+				<div className="text-gray-300 overflow-y-scroll font-medium mt-3 mr-2 space-y-[21px]">
+					{/* Sections of body */}
+					{data['1'].categories.map((category) => (
+					<div key={category.id}>
+						{category.label && (
+						<button type='button' className='flex items-center px-0.5 text-xs font-title uppercase tracking-wide w-full'>
+							<Icons.Arrow className="w-3 h-3 mr-0.5" />
+							{category.label}
+						</button>
+						)}
+
+						<div className="space-y-0.5 mt-[5px]">
+							{category.channels.map((channel) => (
+								<ChannelLink channel={channel} key={channel.id} />
+							))}
+						</div>
 					</div>
+					))}
 				</div>
 			</div>
 
@@ -79,3 +74,22 @@ export default function Channel() {
 		</div>
 	);
 }
+
+
+function ChannelLink({ channel }) {
+	const Icon = channel.icon
+		? Icons[channel.icon]
+		: Icons.Hashtag;
+
+	return (
+		<a
+			href="#"
+			className="flex items-center ml-2 px-2 py-1 rounded text-gray-300
+				hover:bg-gray-550/[0.4] hover:text-gray-100 group"
+			>
+			<Icon className="w-5 h-5 mr-1.5 text-gray-300" />
+			{channel.label}
+			<Icons.AddPerson className="w-4 h-4 ml-auto text-gray-200 opacity-0 group-hover:opacity-100 hover:text-gray-100" />
+		</a>
+	);
+};
