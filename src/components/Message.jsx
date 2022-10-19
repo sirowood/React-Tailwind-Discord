@@ -7,7 +7,7 @@ export default function Message() {
 				Main
 			</div>
 			<div className="p-3 space-y-4 overflow-y-scroll">
-				{[...Array(40)].map((_, i) => (
+				{[...Array(10)].map((_, i) => (
 					<p>
 						Message {i}.Lorem ipsum dolor sit amet. Ex officiis culpa et placeat
 						explicabo sed sunt nobis qui voluptatem amet At officiis totam vel

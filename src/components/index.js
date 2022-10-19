@@ -1,5 +1,5 @@
-import Server from './Server';
+import Nav from './Nav';
 import Channel from './Channel';
 import Message from './Message';
 
-export { Server, Channel, Message };
+export { Nav, Channel, Message };
