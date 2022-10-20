@@ -3,19 +3,28 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import { useParams, Routes, Route, Link, useMatch } from 'react-router-dom';
-import data from '../../data.json';
+import data from '../../data';
 import * as Icons from './icons';
 
 export default function Server() {
 	const { id } = useParams();
+	const cid = useParams()['*'].split('/')[1];
+
+	const server = data[+id];
+	const channel = server.categories
+		.map((category) => category.channels)
+		.flat()
+		.find((c) => +c.id === +cid);
+
 	const [closedCategories, setClosedCategories] = useState([]);
 
 	function toggleCategory(categoryId) {
-		setClosedCategories(closedCategories.includes(categoryId)
-			? closedCategories.filter((cid) => cid !== categoryId)
-			: [...closedCategories].concat(categoryId)
+		setClosedCategories(
+			closedCategories.includes(categoryId)
+				? closedCategories.filter((i) => i !== categoryId)
+				: [...closedCategories].concat(categoryId)
 		);
-	};
+	}
 
 	return (
 		<div className="flex flex-1 flex-row">
@@ -38,7 +47,7 @@ export default function Server() {
 				{/* Body of channel */}
 				<div className="text-gray-300 overflow-y-scroll font-medium mt-3 mr-2 space-y-[21px]">
 					{/* Sections of body */}
-					{data['1'].categories.map((category) => (
+					{data[+id].categories.map((category) => (
 						<div key={category.id}>
 							{category.label && (
 								<button
@@ -46,18 +55,28 @@ export default function Server() {
 									onClick={() => toggleCategory(category.id)}
 									className="flex items-center px-0.5 text-xs font-title uppercase tracking-wide hover:text-gray-100 w-full"
 								>
-									<Icons.Arrow className={`${closedCategories.includes(category.id) ? '-rotate-90' : 'rotate-0'} w-3 h-3 mr-0.5 transition`} />
+									<Icons.Arrow
+										className={`${
+											closedCategories.includes(category.id)
+												? '-rotate-90'
+												: 'rotate-0'
+										} w-3 h-3 mr-0.5 transition`}
+									/>
 									{category.label}
 								</button>
 							)}
 
 							<div className="space-y-0.5 mt-[5px]">
-								{category.channels.filter((channel) => {
-									const categoryIsOpen = !closedCategories.includes(category.id);
-									return categoryIsOpen || channel.unread;
-								}).map((channel) => (
-									<ChannelLink channel={channel} key={channel.id} />
-								))}
+								{category.channels
+									.filter((c) => {
+										const categoryIsOpen = !closedCategories.includes(
+											category.id
+										);
+										return categoryIsOpen || c.unread;
+									})
+									.map((c) => (
+										<ChannelLink channel={c} key={c.id} />
+									))}
 							</div>
 						</div>
 					))}
@@ -65,7 +84,7 @@ export default function Server() {
 			</div>
 
 			<Routes>
-				<Route path="/channels/:cid" element={<Message />} />
+				<Route path="/channels/:cid" element={<Message channel={channel} />} />
 			</Routes>
 		</div>
 	);
@@ -79,13 +98,15 @@ function ChannelLink({ channel }) {
 	const state = active
 		? 'active'
 		: channel.unread
-			? 'inactiveUnread'
-			: 'inactiveRead'
+		? 'inactiveUnread'
+		: 'inactiveRead';
 
 	const classes = {
 		active: 'text-white bg-gray-550/[0.6]',
-		inactiveUnread: 'text-white hover:bg-gray-550/[0.4] active:bg-gray-550[0.6]',
-		inactiveRead: 'text-gray-300 hover:text-gray-100 hover:bg-gray-550/[0.4] active:bg-gray-550[0.6]',
+		inactiveUnread:
+			'text-white hover:bg-gray-550/[0.4] active:bg-gray-550[0.6]',
+		inactiveRead:
+			'text-gray-300 hover:text-gray-100 hover:bg-gray-550/[0.4] active:bg-gray-550[0.6]',
 	};
 
 	return (
@@ -103,30 +124,13 @@ function ChannelLink({ channel }) {
 	);
 }
 
-function Message() {
+function Message({ channel }) {
 	return (
 		<div className="bg-gray-700 flex-1 flex flex-col">
 			<div className="px-3 h-12 flex items-center flex-shrink-0 shadow-md text-white font-semibold">
-				Main
+				{channel.label}
 			</div>
-			<div className="p-3 space-y-4 overflow-y-scroll">
-				{[...Array(10)].map((_, i) => (
-					<p key={`message-${i.toString()}`}>
-						Message {i}.Lorem ipsum dolor sit amet. Ex officiis culpa et placeat
-						explicabo sed sunt nobis qui voluptatem amet At officiis totam vel
-						excepturi ducimus et omnis error. Non dolore pariatur non molestiae
-						culpa quo perferendis praesentium. Nam dolor nobis a quam nemo eum
-						molestias reiciendis et facere iste in dolorem consectetur sed quos
-						optio. Eos consequatur quaerat aut maiores dignissimos sed optio
-						perferendis ut architecto omnis? Et quae eaque vel obcaecati vero
-						est molestias illo. Aut illo aliquid est natus repudiandae sed quas
-						necessitatibus. Id voluptates nisi ex blanditiis repellat nam nisi
-						dolorem. Non deserunt aliquid ea reprehenderit sapiente est soluta
-						quod et harum aliquam eos veniam neque aut minima officiis. Eos
-						omnis nisi non nobis repellat id dignissimos excepturi.
-					</p>
-				))}
-			</div>
+			<div className="p-3 space-y-4 overflow-y-scroll">Message</div>
 		</div>
 	);
 }

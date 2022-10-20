@@ -5,6 +5,7 @@ import { Discord as DiscordIcon } from './icons';
 import mirage from '../../public/servers/mirage.png';
 import next from '../../public/servers/next.png';
 import tailwind from '../../public/servers/tailwind.png';
+import data from '../../data';
 
 const servers = [
 	{ id: '1', src: tailwind },
@@ -21,9 +22,14 @@ export default function Nav() {
 
 			<hr className="border-t-gray-550/[.48] border-t-2 rounded mx-2" />
 
-			{servers.map((server) => (
-				<NavLink href={`/servers/${server.id}/channels/1`} key={server.id}>
-					<img src={server.src} alt="" />
+			{servers.map((s) => (
+				<NavLink
+					href={`/servers/${s.id}/channels/${
+						data[+s.id].categories[0].channels[0].id
+					}`}
+					key={s.id}
+				>
+					<img src={s.src} alt="" />
 				</NavLink>
 			))}
 		</div>
