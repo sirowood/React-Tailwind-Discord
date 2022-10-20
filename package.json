@@ -8,7 +8,7 @@
 		"lint": "eslint . --fix --max-warnings=0",
 		"format": "prettier . --write",
 		"start": "webpack serve --mode=development",
-		"build": "webpack",
+		"build": "webpack --mode=production",
 		"prepare": "husky install"
 	},
 	"repository": {

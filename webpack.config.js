@@ -3,8 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: './src/index.jsx',
-	mode: 'production',
 	output: {
+		publicPath: '/',
 		path: path.join(__dirname, 'dist'),
 		filename: 'main.js',
 		clean: true,
