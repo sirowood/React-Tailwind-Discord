@@ -84,7 +84,10 @@ export default function Server() {
 			</div>
 
 			<Routes>
-				<Route path="/channels/:cid" element={<Message channel={channel} />} />
+				<Route
+					path="/channels/:cid"
+					element={<MessageComponent channel={channel} />}
+				/>
 			</Routes>
 		</div>
 	);
@@ -124,7 +127,7 @@ function ChannelLink({ channel }) {
 	);
 }
 
-function Message({ channel }) {
+function MessageComponent({ channel }) {
 	return (
 		<div className="flex flex-col flex-1 overflow-hidden bg-gray-700">
 			<div className="flex items-center h-12 px-2 shadow-sm">
@@ -176,7 +179,48 @@ function Message({ channel }) {
 				</div>
 			</div>
 
-			<div className="p-3 space-y-4 overflow-y-scroll">Message</div>
+			<div className="flex-1 overflow-y-scroll">
+				{channel.messages.map((message, i) => (
+					<div key={`message-${i.toString()}`}>
+						{i === 0 || message.user !== channel.messages[i - 1].user ? (
+							<MessageWithUser message={message} />
+						) : (
+							<Message message={message} />
+						)}
+					</div>
+				))}
+			</div>
+		</div>
+	);
+}
+
+function MessageWithUser({ message }) {
+	return (
+		<div className="leading-[22px] mt-[17px] flex pl-4 pr-16 py-0.5 hover:bg-gray-900/[.07]">
+			<img
+				src={message.avatarUrl}
+				alt=""
+				className="w-10 h-10 mr-4 rounded-full mt-0.5"
+			/>
+			<div>
+				<p className="flex items-baseline">
+					<span className="mr-2 font-medium text-green-400">
+						{message.user}
+					</span>
+					<span className="text-xs font-medium text-gray-400">
+						{message.date}
+					</span>
+				</p>
+				<p className="text-gray-100">{message.text}</p>
+			</div>
+		</div>
+	);
+}
+
+function Message({ message }) {
+	return (
+		<div className="px-4 py-0.5 hover:bg-gray-950/[.07] leading-[22px]">
+			<p className="text-gray-100 pl-14">{message.text}</p>
 		</div>
 	);
 }

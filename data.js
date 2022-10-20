@@ -1,6 +1,6 @@
-import faker from 'faker';
+import { faker as Faker } from '@faker-js/faker';
 
-faker.seed(123);
+Faker.seed(123);
 
 function getRandomInt(min, max) {
 	// The maximum is exclusive and the minimum is inclusive
@@ -12,14 +12,14 @@ function getRandomInt(min, max) {
 function getMessages() {
 	return [...Array(getRandomInt(7, 25))]
 		.map(() => {
-			const user = faker.internet.userName();
-			const avatarUrl = faker.image.avatar();
+			const user = Faker.internet.userName();
+			const avatarUrl = Faker.internet.avatar();
 
 			return [...Array(getRandomInt(1, 4))].map(() => ({
 				user,
 				avatarUrl,
 				date: '01/15/2021',
-				text: faker.lorem.sentences(3),
+				text: Faker.hacker.phrase(),
 			}));
 		})
 		.flat();
