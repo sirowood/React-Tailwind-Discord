@@ -10,7 +10,7 @@ export default function Server() {
 	const { id } = useParams();
 	const cid = useParams()['*'].split('/')[1];
 
-	const server = data[+id];
+	const server = data.find((item) => item.id === +id);
 	const channel = server.categories
 		.map((category) => category.channels)
 		.flat()
@@ -40,14 +40,14 @@ export default function Server() {
 						<Icons.Verified className="absolute w-4 h-4 text-gray-550" />
 						<Icons.Check className="absolute w-4 h-4" />
 					</div>
-					{data[id]?.label || `Server ${id}`}
+					{server.label}
 					<Icons.Chevron className="w-[18px] h-[18px] ml-auto opacity-80" />
 				</button>
 
 				{/* Body of channel */}
 				<div className="text-gray-300 overflow-y-scroll font-medium mt-3 mr-2 space-y-[21px]">
 					{/* Sections of body */}
-					{data[+id].categories.map((category) => (
+					{server.categories.map((category) => (
 						<div key={category.id}>
 							{category.label && (
 								<button

@@ -19,15 +19,17 @@ function getMessages() {
 				user,
 				avatarUrl,
 				date: '01/15/2021',
-				text: Faker.hacker.phrase(),
+				text: Faker.lorem.sentences(3),
 			}));
 		})
 		.flat();
 }
 
-export default {
-	1: {
+export default [
+	{
+		id: 1,
 		label: 'Tailwind CSS',
+		img: 'tailwind.png',
 		categories: [
 			{
 				id: 1,
@@ -169,8 +171,10 @@ export default {
 			},
 		],
 	},
-	2: {
+	{
+		id: 2,
 		label: 'Next.js',
+		img: 'next.png',
 		categories: [
 			{
 				id: 6,
@@ -270,8 +274,10 @@ export default {
 			},
 		],
 	},
-	3: {
+	{
+		id: 3,
 		label: 'Mirage JS',
+		img: 'mirage.png',
 		categories: [
 			{
 				id: 9,
@@ -289,4 +295,4 @@ export default {
 			},
 		],
 	},
-};
+];

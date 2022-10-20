@@ -1,17 +1,10 @@
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Discord as DiscordIcon } from './icons';
-import mirage from '../../public/servers/mirage.png';
-import next from '../../public/servers/next.png';
-import tailwind from '../../public/servers/tailwind.png';
 import data from '../../data';
-
-const servers = [
-	{ id: '1', src: tailwind },
-	{ id: '2', src: next },
-	{ id: '3', src: mirage },
-];
 
 export default function Nav() {
 	return (
@@ -22,14 +15,15 @@ export default function Nav() {
 
 			<hr className="border-t-gray-550/[.48] border-t-2 rounded mx-2" />
 
-			{servers.map((s) => (
+			{data.map((server) => (
 				<NavLink
-					href={`/servers/${s.id}/channels/${
-						data[+s.id].categories[0].channels[0].id
-					}`}
-					key={s.id}
+					href={`/servers/${server.id}/channels/${server.categories[0].channels[0].id}`}
+					key={server.id}
 				>
-					<img src={s.src} alt="" />
+					<img
+						src={require(`../../public/servers/${server.img}`).default}
+						alt=""
+					/>
 				</NavLink>
 			))}
 		</div>
