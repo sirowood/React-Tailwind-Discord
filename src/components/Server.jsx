@@ -2,7 +2,9 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
-import { useParams, Routes, Route, Link, useMatch } from 'react-router-dom';
+import {
+ useParams, Routes, Route, Link, useMatch,
+} from 'react-router-dom';
 import data from '../../data';
 import * as Icons from './icons';
 
@@ -22,13 +24,13 @@ export default function Server() {
 		setClosedCategories(
 			closedCategories.includes(categoryId)
 				? closedCategories.filter((i) => i !== categoryId)
-				: [...closedCategories].concat(categoryId)
+				: [...closedCategories].concat(categoryId),
 		);
 	}
 
 	return (
-		<div className="flex flex-1 flex-row flex-shrink min-w-0">
-			<div className="hidden md:flex flex-col bg-gray-800 w-60">
+		<div className="flex flex-row flex-1 flex-shrink min-w-0">
+			<div className="flex-col hidden bg-gray-800 md:flex w-60">
 				{/* Header of channel */}
 				<button
 					type="button"
@@ -70,7 +72,7 @@ export default function Server() {
 								{category.channels
 									.filter((c) => {
 										const categoryIsOpen = !closedCategories.includes(
-											category.id
+											category.id,
 										);
 										return categoryIsOpen || c.unread;
 									})
@@ -118,7 +120,7 @@ function ChannelLink({ channel }) {
 			className={`${classes[state]} flex items-center ml-2 px-2 py-1 rounded group relative`}
 		>
 			{state === 'inactiveUnread' && (
-				<div className="absolute w-1 h-2 left-0 -ml-2 bg-white rounded-r-full" />
+				<div className="absolute left-0 w-1 h-2 -ml-2 bg-white rounded-r-full" />
 			)}
 			<Icon className="w-5 h-5 mr-1.5 text-gray-300" />
 			{channel.label}
@@ -141,7 +143,7 @@ function MessageComponent({ channel }) {
 				{channel.description && (
 					<>
 						<div className="hidden md:block w-px h-6 mx-2 bg-white/[.06]" />
-						<div className="hidden md:block mx-2 text-sm font-medium text-gray-200 truncate">
+						<div className="hidden mx-2 text-sm font-medium text-gray-200 truncate md:block">
 							{channel.description}
 						</div>
 					</>
@@ -158,7 +160,7 @@ function MessageComponent({ channel }) {
 				</div>
 
 				{/* Desktop buttons */}
-				<div className="hidden md:flex items-center ml-auto">
+				<div className="items-center hidden ml-auto md:flex">
 					<button type="button" className="text-gray-200 hover:text-gray-100">
 						<Icons.HashtagWithSpeechBubble className="w-6 h-6 mx-2" />
 					</button>

@@ -5,7 +5,7 @@ Faker.seed(123);
 function getRandomInt(min, max) {
 	// The maximum is exclusive and the minimum is inclusive
 	return Math.floor(
-		Math.random() * (Math.floor(max) - Math.ceil(min)) + Math.ceil(min)
+		Math.random() * (Math.floor(max) - Math.ceil(min)) + Math.ceil(min),
 	);
 }
 
@@ -284,7 +284,9 @@ export default [
 				label: 'Text Channels',
 				channels: [
 					{ id: 28, label: 'general', messages: getMessages() },
-					{ id: 29, label: 'graphql', unread: true, messages: getMessages() },
+					{
+ id: 29, label: 'graphql', unread: true, messages: getMessages(),
+},
 					{
 						id: 30,
 						label: 'typescript',

@@ -3,7 +3,7 @@ module.exports = {
 		browser: true,
 		es2021: true,
 	},
-	extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
+	extends: ['plugin:react/recommended', 'airbnb'],
 	overrides: [],
 	parserOptions: {
 		ecmaFeatures: {
@@ -13,5 +13,10 @@ module.exports = {
 		sourceType: 'module',
 	},
 	plugins: ['react'],
-	rules: {},
+	rules: {
+		'no-tabs': 0,
+		indent: 'off',
+		'react/jsx-indent': 'off',
+		'react/jsx-indent-props': 'off',
+	},
 };
