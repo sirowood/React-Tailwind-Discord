@@ -27,8 +27,8 @@ export default function Server() {
 	}
 
 	return (
-		<div className="flex flex-1 flex-row">
-			<div className="bg-gray-800 w-60 flex flex-col">
+		<div className="flex flex-1 flex-row flex-shrink min-w-0">
+			<div className="flex flex-col bg-gray-800 w-60">
 				{/* Header of channel */}
 				<button
 					type="button"
@@ -126,10 +126,44 @@ function ChannelLink({ channel }) {
 
 function Message({ channel }) {
 	return (
-		<div className="bg-gray-700 flex-1 flex flex-col">
-			<div className="px-3 h-12 flex items-center flex-shrink-0 shadow-md text-white font-semibold">
-				{channel.label}
+		<div className="flex flex-col flex-1 overflow-hidden bg-gray-700">
+			<div className="flex items-center h-12 px-2 shadow-sm">
+				<div className="flex items-center">
+					<Icons.Hashtag className="w-6 h-6 mx-2 font-semibold text-gray-400" />
+					<span className='mr-2 text-white font-title'>{channel.label}</span>
+				</div>
+
+				{channel.description && (
+					<>
+						<div className="w-px h-6 mx-2 bg-white/[.06]" />
+						<div className="mx-2 text-sm font-medium text-gray-200 truncate">
+							{channel.description}
+						</div>
+					</>
+				)}
+
+				<div className="flex items-center ml-auto">
+					<button type='button' className='text-gray-200 hover:text-gray-100'>
+						<Icons.HashtagWithSpeechBubble className='w-6 h-6 mx-2' />
+					</button>
+					<button type='button' className='text-gray-200 hover:text-gray-100'>
+						<Icons.Bell className='w-6 h-6 mx-2' />
+					</button>
+					<button type='button' className='text-gray-200 hover:text-gray-100'>
+						<Icons.Pin className='w-6 h-6 mx-2' />
+					</button>
+					<button type='button' className='text-gray-200 hover:text-gray-100'>
+						<Icons.People className='w-6 h-6 mx-2' />
+					</button>
+					<button type='button' className='text-gray-200 hover:text-gray-100'>
+						<Icons.Inbox className='w-6 h-6 mx-2' />
+					</button>
+					<button type='button' className='text-gray-200 hover:text-gray-100'>
+						<Icons.QuestionCircle className='w-6 h-6 mx-2' />
+					</button>
+				</div>
 			</div>
+
 			<div className="p-3 space-y-4 overflow-y-scroll">Message</div>
 		</div>
 	);
