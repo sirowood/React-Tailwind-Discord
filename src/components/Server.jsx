@@ -1,13 +1,21 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Routes, Route, Link, useMatch } from 'react-router-dom';
 import data from '../../data.json';
 import * as Icons from './icons';
 
 export default function Server() {
 	const { id } = useParams();
+	const [closedCategories, setClosedCategories] = useState([]);
+
+	function toggleCategory(categoryId) {
+		setClosedCategories(closedCategories.includes(categoryId)
+			? closedCategories.filter((cid) => cid !== categoryId)
+			: [...closedCategories].concat(categoryId)
+		);
+	};
 
 	return (
 		<div className="flex flex-1 flex-row">
@@ -35,15 +43,19 @@ export default function Server() {
 							{category.label && (
 								<button
 									type="button"
+									onClick={() => toggleCategory(category.id)}
 									className="flex items-center px-0.5 text-xs font-title uppercase tracking-wide hover:text-gray-100 w-full"
 								>
-									<Icons.Arrow className="w-3 h-3 mr-0.5" />
+									<Icons.Arrow className={`${closedCategories.includes(category.id) ? '-rotate-90' : 'rotate-0'} w-3 h-3 mr-0.5 transition`} />
 									{category.label}
 								</button>
 							)}
 
 							<div className="space-y-0.5 mt-[5px]">
-								{category.channels.map((channel) => (
+								{category.channels.filter((channel) => {
+									const categoryIsOpen = !closedCategories.includes(category.id);
+									return categoryIsOpen || channel.unread;
+								}).map((channel) => (
 									<ChannelLink channel={channel} key={channel.id} />
 								))}
 							</div>
