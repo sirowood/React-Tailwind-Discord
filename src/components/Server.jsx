@@ -28,7 +28,7 @@ export default function Server() {
 
 	return (
 		<div className="flex flex-1 flex-row flex-shrink min-w-0">
-			<div className="flex flex-col bg-gray-800 w-60">
+			<div className="hidden md:flex flex-col bg-gray-800 w-60">
 				{/* Header of channel */}
 				<button
 					type="button"
@@ -140,14 +140,25 @@ function MessageComponent({ channel }) {
 
 				{channel.description && (
 					<>
-						<div className="w-px h-6 mx-2 bg-white/[.06]" />
-						<div className="mx-2 text-sm font-medium text-gray-200 truncate">
+						<div className="hidden md:block w-px h-6 mx-2 bg-white/[.06]" />
+						<div className="hidden md:block mx-2 text-sm font-medium text-gray-200 truncate">
 							{channel.description}
 						</div>
 					</>
 				)}
 
-				<div className="flex items-center ml-auto">
+				{/* Mobile buttons */}
+				<div className="flex items-center ml-auto md:hidden">
+					<button type="button" className="text-gray-200 hover:text-gray-100">
+						<Icons.HashtagWithSpeechBubble className="w-6 h-6 mx-2" />
+					</button>
+					<button type="button" className="text-gray-200 hover:text-gray-100">
+						<Icons.People className="w-6 h-6 mx-2" />
+					</button>
+				</div>
+			
+				{/* Desktop buttons */}
+				<div className="hidden md:flex items-center ml-auto">
 					<button type="button" className="text-gray-200 hover:text-gray-100">
 						<Icons.HashtagWithSpeechBubble className="w-6 h-6 mx-2" />
 					</button>
@@ -164,7 +175,9 @@ function MessageComponent({ channel }) {
 						<input
 							type="text"
 							placeholder="Search"
-							className="w-36 h-6 bg-gray-900 border-none rounded placeholder-gray-250 px-1.5 text-sm font-medium"
+							className="w-36 h-6 bg-gray-900 border-none rounded
+								placeholder-gray-250 px-1.5 text-sm font-medium
+								focus:w-[238px] focus:ring-0 transition-all duration-200"
 						/>
 						<div className="absolute inset-y-0 right-0 flex items-center">
 							<Icons.Spyglass className="w-4 h-4 mr-1.5 mt-[1px] text-gray-250" />

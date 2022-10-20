@@ -8,7 +8,7 @@ import data from '../../data';
 
 export default function Nav() {
 	return (
-		<div className="bg-gray-900 p-3 space-y-2 overflow-y-scroll flex-shrink-0">
+		<div className="hidden p-3 space-y-2 overflow-y-scroll bg-gray-900 md:block">
 			<NavLink href="/">
 				<DiscordIcon className="w-7 h-5" />
 			</NavLink>

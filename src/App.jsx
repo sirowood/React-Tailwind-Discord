@@ -12,7 +12,7 @@ import './app.css';
 export default function App() {
 	return (
 		<Router>
-			<div className="flex flex-row flex-1 text-gray-100 h-screen">
+			<div className="flex text-gray-100 h-screen">
 				<Nav />
 				<Routes>
 					<Route path="/servers/:id/*" element={<Server />} />
