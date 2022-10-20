@@ -52,11 +52,11 @@ export default function Server() {
 			</div>
 
 			<Routes>
-				<Route path='/channels/:cid' element={<Message />} />
+				<Route path="/channels/:cid" element={<Message />} />
 			</Routes>
 		</div>
 	);
-};
+}
 
 function ChannelLink({ channel }) {
 	const Icon = channel.icon ? Icons[channel.icon] : Icons.Hashtag;
@@ -70,7 +70,8 @@ function ChannelLink({ channel }) {
 			className={`${
 				active
 					? 'text-white bg-gray-550/[0.8]'
-					: 'text-gray-300 hover:text-gray-100 hover:bg-gray-550/[0.4]'}
+					: 'text-gray-300 hover:text-gray-100 hover:bg-gray-550/[0.4]'
+			}
 				flex items-center mx-2 px-2 py-1 rounded group`}
 		>
 			<Icon className="w-5 h-5 mr-1.5 text-gray-300" />
@@ -78,7 +79,7 @@ function ChannelLink({ channel }) {
 			<Icons.AddPerson className="w-4 h-4 ml-auto text-gray-200 opacity-0 group-hover:opacity-100 hover:text-gray-100" />
 		</Link>
 	);
-};
+}
 
 function Message() {
 	return (
@@ -89,22 +90,21 @@ function Message() {
 			<div className="p-3 space-y-4 overflow-y-scroll">
 				{[...Array(10)].map((_, i) => (
 					<p key={`message-${i.toString()}`}>
-						Message {i}.Lorem ipsum dolor sit amet. Ex officiis culpa et
-						placeat explicabo sed sunt nobis qui voluptatem amet At officiis
-						totam vel excepturi ducimus et omnis error. Non dolore pariatur
-						non molestiae culpa quo perferendis praesentium. Nam dolor nobis a
-						quam nemo eum molestias reiciendis et facere iste in dolorem
-						consectetur sed quos optio. Eos consequatur quaerat aut maiores
-						dignissimos sed optio perferendis ut architecto omnis? Et quae
-						eaque vel obcaecati vero est molestias illo. Aut illo aliquid est
-						natus repudiandae sed quas necessitatibus. Id voluptates nisi ex
-						blanditiis repellat nam nisi dolorem. Non deserunt aliquid ea
-						reprehenderit sapiente est soluta quod et harum aliquam eos veniam
-						neque aut minima officiis. Eos omnis nisi non nobis repellat id
-						dignissimos excepturi.
+						Message {i}.Lorem ipsum dolor sit amet. Ex officiis culpa et placeat
+						explicabo sed sunt nobis qui voluptatem amet At officiis totam vel
+						excepturi ducimus et omnis error. Non dolore pariatur non molestiae
+						culpa quo perferendis praesentium. Nam dolor nobis a quam nemo eum
+						molestias reiciendis et facere iste in dolorem consectetur sed quos
+						optio. Eos consequatur quaerat aut maiores dignissimos sed optio
+						perferendis ut architecto omnis? Et quae eaque vel obcaecati vero
+						est molestias illo. Aut illo aliquid est natus repudiandae sed quas
+						necessitatibus. Id voluptates nisi ex blanditiis repellat nam nisi
+						dolorem. Non deserunt aliquid ea reprehenderit sapiente est soluta
+						quod et harum aliquam eos veniam neque aut minima officiis. Eos
+						omnis nisi non nobis repellat id dignissimos excepturi.
 					</p>
 				))}
 			</div>
 		</div>
-);
-};
+	);
+}
