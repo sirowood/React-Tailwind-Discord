@@ -5,7 +5,8 @@ module.exports = {
 	entry: './index.jsx',
 	mode: 'production',
 	output: {
-		path: path.resolve(__dirname, '/dist'),
+		publicPath: '/',
+		path: path.resolve(__dirname, 'dist'),
 		filename: 'main.js',
 	},
 	resolve: {
@@ -15,7 +16,7 @@ module.exports = {
 		port: 3000,
 		open: true,
 		compress: true,
-		static: path.resolve(__dirname, '/dist'),
+		static: path.resolve(__dirname, 'dist'),
 		historyApiFallback: true,
 	},
 	devtool: 'source-map',
@@ -23,7 +24,13 @@ module.exports = {
 		rules: [
 			{
 				test: /\.jsx?$/,
-				use: 'babel-loader',
+				exclude: /node_modules/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env', '@babel/preset-react'],
+					},
+				},
 			},
 			{
 				test: /\.css$/i,
