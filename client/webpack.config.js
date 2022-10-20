@@ -5,7 +5,7 @@ module.exports = {
 	entry: './src/index.jsx',
 	output: {
 		publicPath: '/',
-		path: path.join(__dirname, 'dist'),
+		path: path.resolve(__dirname, '../server/dist'),
 		filename: 'main.js',
 		clean: true,
 	},
