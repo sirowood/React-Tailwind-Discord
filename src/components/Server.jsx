@@ -156,7 +156,7 @@ function MessageComponent({ channel }) {
 						<Icons.People className="w-6 h-6 mx-2" />
 					</button>
 				</div>
-			
+
 				{/* Desktop buttons */}
 				<div className="hidden md:flex items-center ml-auto">
 					<button type="button" className="text-gray-200 hover:text-gray-100">
