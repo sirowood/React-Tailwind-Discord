@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
@@ -34,7 +35,7 @@ export default function Server() {
 							{category.label && (
 								<button
 									type="button"
-									className="flex items-center px-0.5 text-xs font-title uppercase tracking-wide w-full"
+									className="flex items-center px-0.5 text-xs font-title uppercase tracking-wide hover:text-gray-100 w-full"
 								>
 									<Icons.Arrow className="w-3 h-3 mr-0.5" />
 									{category.label}
@@ -63,17 +64,26 @@ function ChannelLink({ channel }) {
 	const match = useMatch('/servers/:id/channels/:cid');
 	const cid = match?.params.cid;
 	const active = channel.id.toString() === cid;
+	const state = active
+		? 'active'
+		: channel.unread
+			? 'inactiveUnread'
+			: 'inactiveRead'
+
+	const classes = {
+		active: 'text-white bg-gray-550/[0.6]',
+		inactiveUnread: 'text-white hover:bg-gray-550/[0.4] active:bg-gray-550[0.6]',
+		inactiveRead: 'text-gray-300 hover:text-gray-100 hover:bg-gray-550/[0.4] active:bg-gray-550[0.6]',
+	};
 
 	return (
 		<Link
 			to={`channels/${channel.id}`}
-			className={`${
-				active
-					? 'text-white bg-gray-550/[0.8]'
-					: 'text-gray-300 hover:text-gray-100 hover:bg-gray-550/[0.4]'
-			}
-				flex items-center mx-2 px-2 py-1 rounded group`}
+			className={`${classes[state]} flex items-center ml-2 px-2 py-1 rounded group relative`}
 		>
+			{state === 'inactiveUnread' && (
+				<div className="absolute w-1 h-2 left-0 -ml-2 bg-white rounded-r-full" />
+			)}
 			<Icon className="w-5 h-5 mr-1.5 text-gray-300" />
 			{channel.label}
 			<Icons.AddPerson className="w-4 h-4 ml-auto text-gray-200 opacity-0 group-hover:opacity-100 hover:text-gray-100" />
