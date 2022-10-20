@@ -16,8 +16,8 @@ export default function App() {
 				<Nav />
 				<Routes>
 					<Route path="/servers/:id/*" element={<Server />} />
-					<Route path="/servers/@me" element={<Dashboard />} />
-					<Route path="*" element={<Navigate to="/servers/@me" />} />
+					<Route path="/" element={<Dashboard />} />
+					<Route path="*" element={<Navigate to="/" />} />
 				</Routes>
 			</div>
 		</Router>

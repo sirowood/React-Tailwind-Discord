@@ -16,7 +16,7 @@ const servers = [
 export default function Nav() {
 	return (
 		<div className="bg-gray-900 p-3 space-y-2 overflow-y-scroll flex-shrink-0">
-			<NavLink href="/servers/@me">
+			<NavLink href="/">
 				<DiscordIcon className="w-7 h-5" />
 			</NavLink>
 
