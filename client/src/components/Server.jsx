@@ -47,7 +47,7 @@ export default function Server() {
 				</button>
 
 				{/* Body of channel */}
-				<div className="text-gray-300 overflow-y-scroll font-medium mt-3 mr-2 space-y-[21px]">
+				<div className="text-gray-300 overflow-y-auto font-medium mt-3 mr-2 space-y-[21px]">
 					{/* Sections of body */}
 					{server.categories.map((category) => (
 						<div key={category.id}>
@@ -194,7 +194,7 @@ function MessageComponent({ channel }) {
 				</div>
 			</div>
 
-			<div className="flex-1 overflow-y-scroll">
+			<div className="flex-1 overflow-y-auto">
 				{channel.messages.map((message, i) => (
 					<div key={`message-${i.toString()}`}>
 						{i === 0 || message.user !== channel.messages[i - 1].user ? (

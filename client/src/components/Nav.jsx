@@ -1,3 +1,5 @@
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable import/no-named-as-default */
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable react/prop-types */
@@ -8,9 +10,9 @@ import data from '../../data';
 
 export default function Nav() {
 	return (
-		<div className="hidden p-3 space-y-2 overflow-y-scroll bg-gray-900 md:block">
+		<div className="hidden p-3 space-y-2 overflow-y-auto bg-gray-900 md:block">
 			<NavLink href="/">
-				<DiscordIcon className="w-7 h-5" />
+				<DiscordIcon className="h-5 w-7" />
 			</NavLink>
 
 			<hr className="border-t-gray-550/[.48] border-t-2 rounded mx-2" />
@@ -36,7 +38,7 @@ function NavLink({ href, children }) {
 
 	return (
 		<Link to={href} className="relative block group">
-			<div className="absolute flex items-center -left-3 h-full">
+			<div className="absolute flex items-center h-full -left-3">
 				<div
 					className={`${
 						active
