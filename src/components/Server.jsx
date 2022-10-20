@@ -130,7 +130,9 @@ function Message({ channel }) {
 			<div className="flex items-center h-12 px-2 shadow-sm">
 				<div className="flex items-center">
 					<Icons.Hashtag className="w-6 h-6 mx-2 font-semibold text-gray-400" />
-					<span className='mr-2 text-white font-title'>{channel.label}</span>
+					<span className="mr-2 text-white font-title whitespace-nowrap">
+						{channel.label}
+					</span>
 				</div>
 
 				{channel.description && (
@@ -143,23 +145,33 @@ function Message({ channel }) {
 				)}
 
 				<div className="flex items-center ml-auto">
-					<button type='button' className='text-gray-200 hover:text-gray-100'>
-						<Icons.HashtagWithSpeechBubble className='w-6 h-6 mx-2' />
+					<button type="button" className="text-gray-200 hover:text-gray-100">
+						<Icons.HashtagWithSpeechBubble className="w-6 h-6 mx-2" />
 					</button>
-					<button type='button' className='text-gray-200 hover:text-gray-100'>
-						<Icons.Bell className='w-6 h-6 mx-2' />
+					<button type="button" className="text-gray-200 hover:text-gray-100">
+						<Icons.Bell className="w-6 h-6 mx-2" />
 					</button>
-					<button type='button' className='text-gray-200 hover:text-gray-100'>
-						<Icons.Pin className='w-6 h-6 mx-2' />
+					<button type="button" className="text-gray-200 hover:text-gray-100">
+						<Icons.Pin className="w-6 h-6 mx-2" />
 					</button>
-					<button type='button' className='text-gray-200 hover:text-gray-100'>
-						<Icons.People className='w-6 h-6 mx-2' />
+					<button type="button" className="text-gray-200 hover:text-gray-100">
+						<Icons.People className="w-6 h-6 mx-2" />
 					</button>
-					<button type='button' className='text-gray-200 hover:text-gray-100'>
-						<Icons.Inbox className='w-6 h-6 mx-2' />
+					<div className="mx-2 relative -mt-[1px]">
+						<input
+							type="text"
+							placeholder="Search"
+							className="w-36 h-6 bg-gray-900 border-none rounded placeholder-gray-250 px-1.5 text-sm font-medium"
+						/>
+						<div className="absolute inset-y-0 right-0 flex items-center">
+							<Icons.Spyglass className="w-4 h-4 mr-1.5 mt-[1px] text-gray-250" />
+						</div>
+					</div>
+					<button type="button" className="text-gray-200 hover:text-gray-100">
+						<Icons.Inbox className="w-6 h-6 mx-2" />
 					</button>
-					<button type='button' className='text-gray-200 hover:text-gray-100'>
-						<Icons.QuestionCircle className='w-6 h-6 mx-2' />
+					<button type="button" className="text-gray-200 hover:text-gray-100">
+						<Icons.QuestionCircle className="w-6 h-6 mx-2" />
 					</button>
 				</div>
 			</div>

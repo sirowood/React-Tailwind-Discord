@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const forms = require('@tailwindcss/forms');
 
 module.exports = {
 	content: ['./src/**/*.{js,jsx}', './public/index.html'],
@@ -19,6 +20,7 @@ module.exports = {
 					50: '#ECEDEE',
 					100: '#DCDDDE',
 					200: '#B9BBBE',
+					250: '#A3A6AA',
 					300: '#8E9297',
 					400: '#72767D',
 					500: '#5C6067',
@@ -31,5 +33,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [],
+	plugins: [forms],
 };
