@@ -5,7 +5,9 @@ import {
 	Route,
 	Navigate,
 } from 'react-router-dom';
-import { Nav, Server, Dashboard } from './components';
+import {
+ Nav, Server, Dashboard, Explore,
+} from './components';
 import '../fontStyles.css';
 import './app.css';
 
@@ -16,8 +18,9 @@ export default function App() {
 				<Nav />
 				<Routes>
 					<Route path="/servers/:id/*" element={<Server />} />
-					<Route path="/" element={<Dashboard />} />
-					<Route path="*" element={<Navigate to="/" />} />
+					<Route path="/explore" element={<Explore />} />
+					<Route path="/me" element={<Dashboard />} />
+					<Route path="*" element={<Navigate to="/me" />} />
 				</Routes>
 			</div>
 		</Router>

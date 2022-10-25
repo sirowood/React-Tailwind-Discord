@@ -234,7 +234,7 @@ export function Add(props) {
   );
 }
 
-export function Expolor(props) {
+export function Explore(props) {
   return (
     <svg
       aria-hidden="true"
