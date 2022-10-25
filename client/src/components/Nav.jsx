@@ -5,7 +5,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Discord as DiscordIcon } from './icons';
+import { Discord as DiscordIcon, Add, Expolor } from './icons';
 import data from '../../data';
 
 export default function Nav() {
@@ -28,6 +28,15 @@ export default function Nav() {
 					/>
 				</NavLink>
 			))}
+
+			{/* Add Icon */}
+			<div className="group hover:cursor-pointer active:translate-y-px">
+				<div
+					className="flex items-center justify-center w-12 h-12 overflow-hidden transition-all duration-200 bg-gray-700 text-green-550 group-hover:bg-green-550 group-hover:text-white group-hover:rounded-2xl rounded-3xl"
+				>
+					<Add className="w-6 h-6" />
+				</div>
+			</div>
 		</div>
 	);
 }
