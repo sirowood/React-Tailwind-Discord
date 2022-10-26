@@ -52,7 +52,7 @@ export default function Explore() {
 	return (
 		<>
 			{/* The middle part */}
-			<div className="relative flex-col flex-shrink hidden min-w-0 bg-gray-800 md:flex w-60">
+			<div className="flex-col justify-between flex-shrink hidden h-screen min-w-0 bg-gray-800 md:flex w-60">
 				<div className="h-full pr-2 overflow-y-auto">
 					<div className="text-[25px] w-[216px] h-[30px] text-white font-title my-4 ml-4 leading-[30px]">
 						Discover
@@ -67,7 +67,7 @@ export default function Explore() {
 				</div>
 
 				{/* Bottom */}
-				<div className="absolute bottom-0 w-60 h-[52px] px-2 mb-px bg-gray-850 flex items-center justify-between">
+				<div className="w-60 h-[52px] flex-shrink-0 px-2 mb-px bg-gray-850 flex items-center justify-between">
 					{/* Left part */}
 					<div className="flex flex-row -ml-0.5 mr-2 pl-0.5 w-[122px] items-center hover:cursor-pointer hover:bg-gray-650 rounded group">
 						{/* Discord icon with a dot */}
