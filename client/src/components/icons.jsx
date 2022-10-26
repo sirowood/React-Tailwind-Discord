@@ -359,3 +359,57 @@ export function StudentHub(props) {
     </svg>
   );
 }
+
+export function MutedMicrophone(props) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path
+        d="M6.7 11H5c0 1.19.34 2.3.9 3.28l1.23-1.23c-.27-.62-.43-1.31-.43-2.05zM9.01 11.085c.005.027.01.055.01.085L15 5.18V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 .03.005.057.01.085zM11.724 16.093l-.76.76-.71.716c.244.064.493.115.746.151V22h2v-4.28c3.28-.49 6-3.31 6-6.72h-1.7c0 3-2.54 5.1-5.3 5.1a5.29 5.29 0 01-.276-.007z"
+        fill="currentColor"
+      />
+      <path
+        d="M21 4.27L19.73 3 3 19.73 4.27 21l4.19-4.18 1.23-1.24 1.66-1.66 3.64-3.64L21 4.27z"
+        className="strikethrough-2Kl6HF"
+        fill="rgb(237, 66, 69)"
+      />
+    </svg>
+  );
+}
+
+export function HeadPhone(props) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <svg viewBox="0 0 24 24" {...props}>
+        <path
+          d="M12 2.003c-5.514 0-10 4.485-10 10v8a2 2 0 002 2h2a2 2 0 002-2v-3a2 2 0 00-2-2H4v-3c0-4.412 3.589-8 8-8s8 3.588 8 8v3h-2a2 2 0 00-2 2v3a2 2 0 002 2h2a2 2 0 002-2v-8c0-5.515-4.486-10-10-10z"
+          fill="currentColor"
+        />
+      </svg>
+    </svg>
+  );
+}
+
+export function Setting(props) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path
+        fill="currentColor"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.738 10H22v4h-2.261a7.952 7.952 0 01-1.174 2.564L20 18l-2 2-1.435-1.436A7.946 7.946 0 0114 19.738V22h-4v-2.262a7.94 7.94 0 01-2.564-1.174L6 20l-2-2 1.436-1.436A7.911 7.911 0 014.262 14H2v-4h2.262a7.9 7.9 0 011.174-2.564L4 6l2-2 1.436 1.436A7.9 7.9 0 0110 4.262V2h4v2.261a7.967 7.967 0 012.565 1.174L18 3.999l2 2-1.436 1.437A7.93 7.93 0 0119.738 10zM12 16a4 4 0 100-8 4 4 0 000 8z"
+      />
+    </svg>
+  );
+}
