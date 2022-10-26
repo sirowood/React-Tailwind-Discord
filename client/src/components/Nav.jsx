@@ -84,7 +84,7 @@ export default function Nav() {
 						className={`${
 							pathname === '/explore'
 								? 'bg-green-550 text-white rounded-2xl'
-								: 'group-hover:bg-green-550 group-hover:text-white group-hover:rounded-2xl rounded-3xl'
+								: 'group-hover:bg-green-550 group-hover:text-white text-green-550 group-hover:rounded-2xl rounded-3xl'
 						} 
 							bg-gray-700 text-gray-100 w-12 h-12
 							flex items-center justify-center 
