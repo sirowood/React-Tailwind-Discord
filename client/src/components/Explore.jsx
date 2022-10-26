@@ -36,14 +36,18 @@ const exploreData = [
 	{
 		name: 'Student Hubs',
 		icon: <StudentHub className="w-6 h-6" />,
+		new: true,
 	},
 ];
 
-function ExploreRow({ rowName, children }) {
+function ExploreRow({ rowName, children, isNew }) {
 	return (
-		<div className="flex h-full rounded px-2 py-[5px] items-center text-gray-200 text-base leading-5 font-[500] hover:cursor-pointer hover:bg-gray-650 hover:text-gray-100">
+		<div className="relative flex h-full rounded px-2 py-[5px] items-center text-gray-200 text-base leading-5 font-[500] hover:cursor-pointer hover:bg-gray-650 hover:text-gray-100">
 			<div className="flex items-center justify-center w-8 h-8 mr-3">{children}</div>
 			<div>{rowName}</div>
+			{isNew && (
+				<div className="h-4 text-white bg-gray-550 leading-4 text-[12px] px-2 rounded-xl absolute right-2 font-[600]">NEW</div>
+			)}
 		</div>
 	);
 }
@@ -59,7 +63,7 @@ export default function Explore() {
 					</div>
 					<div className="flex flex-col gap-y-[2px] py-px ml-2 h-11">
 						{exploreData.map((item) => (
-							<ExploreRow key={item.name} rowName={item.name}>
+							<ExploreRow key={item.name} rowName={item.name} isNew={item.new}>
 								{item.icon}
 							</ExploreRow>
 						))}
@@ -85,14 +89,20 @@ export default function Explore() {
 						</div>
 					</div>
 					{/* Right part */}
-					<div className="flex items-center text-gray-200">
-						<div className="flex items-center justify-center w-8 h-8 rounded hover:cursor-pointer hover:bg-gray-650 hover:text-gray-100">
+					<div className="flex items-center justify-center text-gray-200">
+						<div className="relative flex items-center justify-center w-8 h-8 rounded group hover:cursor-pointer hover:bg-gray-650 hover:text-gray-100">
+							<div className="hidden opacity-0 absolute group-hover:block group-hover:opacity-100 px-3 py-2 shadow-lg text-[14px] font-[500] rounded-md leading-4 bg-gray-1000 text-gray-100 -top-10 hover:cursor-default w-max transition-all">Unmute</div>
+							<div className="hidden opacity-0 absolute group-hover:block group-hover:opacity-100 border-[5px] -top-2 border-t-gray-1000 border-x-transparent border-b-transparent hover:cursor-default transition-all" />
 							<MutedMicrophone className="w-5 h-5" />
 						</div>
-						<div className="flex items-center justify-center w-8 h-8 rounded hover:cursor-pointer hover:bg-gray-650 hover:text-gray-100">
+						<div className="relative flex items-center justify-center w-8 h-8 rounded group hover:cursor-pointer hover:bg-gray-650 hover:text-gray-100">
+							<div className="hidden opacity-0 absolute group-hover:block group-hover:opacity-100 px-3 py-2 shadow-lg text-[14px] font-[500] rounded-md leading-4 bg-gray-1000 text-gray-100 -top-10 hover:cursor-default w-max transition-all">Deafen</div>
+							<div className="hidden opacity-0 absolute group-hover:block group-hover:opacity-100 border-[5px] -top-2 border-t-gray-1000 border-x-transparent border-b-transparent hover:cursor-default transition-all" />
 							<HeadPhone className="w-5 h-5" />
 						</div>
-						<div className="flex items-center justify-center w-8 h-8 rounded hover:cursor-pointer hover:bg-gray-650 hover:text-gray-100">
+						<div className="relative flex items-center justify-center w-8 h-8 rounded group hover:cursor-pointer hover:bg-gray-650 hover:text-gray-100">
+							<div className="hidden opacity-0 absolute group-hover:block group-hover:opacity-100 px-3 py-2 shadow-lg text-[14px] font-[500] rounded-md leading-4 bg-gray-1000 text-gray-100 -top-10 hover:cursor-default w-max transition-all">User Settings</div>
+							<div className="hidden opacity-0 absolute group-hover:block group-hover:opacity-100 border-[5px] -top-2 border-t-gray-1000 border-x-transparent border-b-transparent hover:cursor-default transition-all" />
 							<Setting className="w-5 h-5" />
 						</div>
 					</div>
