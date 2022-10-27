@@ -413,3 +413,39 @@ export function Setting(props) {
     </svg>
   );
 }
+
+export function Friends(props) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <g fill="none" fillRule="evenodd">
+        <path
+          fill="currentColor"
+          fillRule="nonzero"
+          d="M2.5 4v1.5c0 4.15 2.21 7.78 5.5 9.8V20h15v-2c0-2.66-5.33-4-8-4h-.25C10 14 6 10 6 5.5V4H2.5zM15 4a4 4 0 100 8 4 4 0 000-8z"
+        />
+        <path d="M0 0h24v24H0V0zm0 0h24v24H0V0zm0 0h24v24H0V0z" />
+      </g>
+    </svg>
+  );
+}
+
+export function NewGroup(props) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path
+        fill="currentColor"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20.998 0v3h3v2h-3v3h-2V5h-3V3h3V0h2zm-18 20v4l5.334-4h6.666c1.104 0 2-.897 2-2V9a2 2 0 00-2-2h-13a2 2 0 00-2 2v9c0 1.103.896 2 2 2h1z"
+      />
+    </svg>
+  );
+}
