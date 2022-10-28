@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import data from '../../data';
 import * as Icons from './icons';
+import BottomBar from './BottomBar';
 
 export default function Server() {
 	const { id } = useParams();
@@ -47,41 +48,47 @@ export default function Server() {
 				</button>
 
 				{/* Body of channel */}
-				<div className="text-gray-300 overflow-y-auto font-medium mt-3 mr-2 space-y-[21px]">
-					{/* Sections of body */}
-					{server.categories.map((category) => (
-						<div key={category.id}>
-							{category.label && (
-								<button
-									type="button"
-									onClick={() => toggleCategory(category.id)}
-									className="flex items-center px-0.5 text-xs font-title uppercase tracking-wide hover:text-gray-100 w-full"
-								>
-									<Icons.Arrow
-										className={`${
-											closedCategories.includes(category.id)
-												? '-rotate-90'
-												: 'rotate-0'
-										} w-3 h-3 mr-0.5 transition`}
-									/>
-									{category.label}
-								</button>
-							)}
+				<div className="flex flex-col justify-between h-[calc(100%-48px)]">
+					{/* Section of body */}
+					<div className="flex flex-col text-gray-300 overflow-y-auto font-medium mt-3 mr-2 space-y-[21px] flex-shrink-1">
+						{server.categories.map((category) => (
+							<div key={category.id}>
+								{category.label && (
+									<button
+										type="button"
+										onClick={() => toggleCategory(category.id)}
+										className="flex items-center px-0.5 text-xs font-title uppercase tracking-wide hover:text-gray-100 w-full"
+									>
+										<Icons.Arrow
+											className={`${
+												closedCategories.includes(category.id)
+													? '-rotate-90'
+													: 'rotate-0'
+											} w-3 h-3 mr-0.5 transition`}
+										/>
+										{category.label}
+									</button>
+								)}
 
-							<div className="space-y-0.5 mt-[5px]">
-								{category.channels
-									.filter((c) => {
-										const categoryIsOpen = !closedCategories.includes(
-											category.id,
-										);
-										return categoryIsOpen || c.unread;
-									})
-									.map((c) => (
-										<ChannelLink channel={c} key={c.id} />
-									))}
+								<div className="space-y-0.5 mt-[5px]">
+									{category.channels
+										.filter((c) => {
+											const categoryIsOpen = !closedCategories.includes(
+												category.id,
+											);
+											return categoryIsOpen || c.unread;
+										})
+										.map((c) => (
+											<ChannelLink channel={c} key={c.id} />
+										))}
+								</div>
 							</div>
-						</div>
-					))}
+						))}
+					</div>
+					{/* Bottom bar */}
+					<div className="flex-shrink-0">
+						<BottomBar />
+					</div>
 				</div>
 			</div>
 
