@@ -2,6 +2,7 @@ import React from 'react';
 import BottomBar from './BottomBar';
 import {
  Friends, Nitro, Add, ListPlaceholder,
+ AddMessage, Inbox, QuestionCircle,
 } from './icons';
 
 export default function Dashboard() {
@@ -77,21 +78,28 @@ export default function Dashboard() {
 							</div>
 						</div>
 						{/* Vertical line */}
-						<div className="w-px h-6 mx-2 bg-gray-550/[0.48] antialiased" />
+						<div className="w-px h-6 mx-2 bg-gray-550/[0.48]" />
 						{/* Rest lables */}
-						<div className="flex flex-row items-center">
-							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center font-[500] text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">Online</div>
-							<div className="py-0.5 px-[10.4px] mx-2 rounded leading-5 text-center font-[500] text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">All</div>
-							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center font-[500] text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">Pending</div>
-							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center font-[500] text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">Blocked</div>
-							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center font-[500] text-white hover:cursor-pointer bg-green-600 flex-shrink-0 -tracking-[0.005rem]">Add Friend</div>
+						<div className="flex flex-row items-center font-[500]">
+							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">Online</div>
+							<div className="py-0.5 px-[10.5px] mx-2 rounded leading-5 text-center text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">All</div>
+							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">Pending</div>
+							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">Blocked</div>
+							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center text-white hover:cursor-pointer bg-green-600 flex-shrink-0 -tracking-[0.005rem]">Add Friend</div>
 						</div>
 					</div>
 					{/* Right un-shrinkable icons */}
-					<div className="relative flex flex-row items-center flex-shrink-0">
+					<div className="relative flex flex-row items-center flex-shrink-0 bg-gray-700">
 						{/* Transparent vertical bar */}
 						<div className="absolute w-2 h-6 -left-2 bg-gradient-to-r from-gray-700/0 to-gray-700" />
-						<div>Icons</div>
+						{/* Icons */}
+						<div className="flex flex-row items-center text-gray-200">
+							<AddMessage className="hidden w-6 h-6 mx-2 hover:cursor-pointer hover:text-gray-100 special:block" />
+							{/* Vertical line */}
+							<div className="w-px h-6 mx-2 bg-gray-550/[0.48] hidden special:block" />
+							<Inbox className="w-6 h-6 mx-2 hover:cursor-pointer hover:text-gray-100" />
+							<QuestionCircle className="w-6 h-6 mx-2 hover:cursor-pointer hover:text-gray-100" />
+						</div>
 					</div>
 				</div>
 				{/* Body */}

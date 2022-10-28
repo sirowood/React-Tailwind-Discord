@@ -39,6 +39,9 @@ module.exports = {
 					600: '#2D7D46',
 				},
 			},
+			screens: {
+				special: '941px',
+			},
 		},
 	},
 	plugins: [forms],
