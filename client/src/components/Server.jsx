@@ -30,8 +30,8 @@ export default function Server() {
 	}
 
 	return (
-		<div className="flex flex-row flex-1 flex-shrink min-w-0">
-			<div className="flex-col hidden bg-gray-800 md:flex w-60">
+		<div className="flex flex-row flex-1 flex-shrink min-w-0 overflow-x-hidden">
+			<div className="flex flex-col bg-gray-800 w-60">
 				{/* Header of channel */}
 				<button
 					type="button"

@@ -8,7 +8,7 @@ export default function Dashboard() {
 	return (
 		<>
 			{/* The middle part */}
-			<div className="flex-col flex-shrink hidden min-w-0 bg-gray-800 md:flex w-60">
+			<div className="flex flex-col flex-shrink-0 min-w-0 overflow-x-hidden bg-gray-800 w-60">
 				{/* Header */}
 				<div className="flex items-center h-12 px-[10px] w-full shadow-sm">
 					<button
@@ -62,7 +62,40 @@ export default function Dashboard() {
 			</div>
 
 			{/* The right part */}
-			<div className="flex flex-col flex-1 bg-gray-700" />
+			<div className="flex flex-col w-full min-w-0 overflow-x-hidden bg-gray-700">
+				{/* Header */}
+				<div className="flex flex-row items-center justify-between h-12 px-2 shadow-sm">
+					{/* Left shrinkable part */}
+					<div className="flex flex-row items-center overflow-x-hidden">
+						{/* Friends */}
+						<div className="flex flex-row items-center mr-2">
+							<div className="mx-2 text-gray-300">
+								<Friends className="w-6 h-6" />
+							</div>
+							<div className="text-white font-title text-[17px] font-[500] leading-[22px] hover:cursor-default">
+								Friends
+							</div>
+						</div>
+						{/* Vertical line */}
+						<div className="w-px h-6 mx-2 bg-gray-550/[0.48]" />
+						{/* Rest lables */}
+						<div className="flex flex-row items-center">
+							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center font-[500] text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">Online</div>
+							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center font-[500] text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">All</div>
+							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center font-[500] text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">Pending</div>
+							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center font-[500] text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">Blocked</div>
+							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center font-[500] text-white hover:cursor-pointer bg-green-600 flex-shrink-0">Add Friend</div>
+						</div>
+					</div>
+					{/* Right un-shrinkable icons */}
+					<div className="relative flex flex-row items-center flex-shrink-0">
+						{/* Transparent vertical bar */}
+						<div className="absolute w-2 h-6 -left-2 bg-gradient-to-r from-gray-700/0 to-gray-700" />
+						<div>Icons</div>
+					</div>
+				</div>
+				{/* Body */}
+			</div>
 		</>
 	);
 }

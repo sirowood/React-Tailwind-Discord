@@ -12,7 +12,7 @@ export default function Nav() {
 	const { pathname } = useLocation();
 
 	return (
-		<div className="hidden p-3 space-y-2 overflow-y-auto bg-gray-900 md:block">
+		<div className="flex flex-col flex-shrink-0 p-3 space-y-2 overflow-y-auto bg-gray-900">
 			<Link to="/me" className="relative block group">
 				<div className="absolute flex items-center h-full -left-3">
 					<div
