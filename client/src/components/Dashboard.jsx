@@ -77,14 +77,14 @@ export default function Dashboard() {
 							</div>
 						</div>
 						{/* Vertical line */}
-						<div className="w-px h-6 mx-2 bg-gray-550/[0.48]" />
+						<div className="w-px h-6 mx-2 bg-gray-550/[0.48] antialiased" />
 						{/* Rest lables */}
 						<div className="flex flex-row items-center">
 							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center font-[500] text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">Online</div>
-							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center font-[500] text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">All</div>
+							<div className="py-0.5 px-[10.4px] mx-2 rounded leading-5 text-center font-[500] text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">All</div>
 							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center font-[500] text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">Pending</div>
 							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center font-[500] text-gray-200 hover:cursor-pointer hover:bg-gray-550/40 hover:text-gray-100">Blocked</div>
-							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center font-[500] text-white hover:cursor-pointer bg-green-600 flex-shrink-0">Add Friend</div>
+							<div className="py-0.5 px-2 mx-2 rounded leading-5 text-center font-[500] text-white hover:cursor-pointer bg-green-600 flex-shrink-0 -tracking-[0.005rem]">Add Friend</div>
 						</div>
 					</div>
 					{/* Right un-shrinkable icons */}
