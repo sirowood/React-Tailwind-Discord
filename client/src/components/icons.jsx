@@ -449,3 +449,51 @@ export function NewGroup(props) {
     </svg>
   );
 }
+
+export function Nitro(props) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path
+        fill="currentColor"
+        d="M2.99 9.358a.78.78 0 01-.782.766h-.426A.781.781 0 011 9.358c0-.418.355-.766.782-.766h.426a.78.78 0 01.782.766zm19.257-.21c1.847 3.832.142 8.43-3.909 10.24-3.908 1.742-8.598.07-10.374-3.761a7.294 7.294 0 01-.64-2.438H5.761a.781.781 0 01-.782-.766.78.78 0 01.782-.766h2.274a.78.78 0 00.782-.767.781.781 0 00-.782-.766H4.41a.781.781 0 01-.782-.766c0-.418.356-.766.782-.766h5.045a.781.781 0 00.782-.767.78.78 0 00-.782-.766h-2.06c-.64 0-1.209-.487-1.209-1.184 0-.627.498-1.184 1.208-1.184h8.03c2.842.14 5.543 1.741 6.822 4.458zm-8.98-.767c-2.248 1.011-3.233 3.616-2.201 5.819 1.032 2.202 3.69 3.168 5.937 2.157 2.247-1.012 3.232-3.617 2.2-5.82-1.032-2.202-3.69-3.168-5.937-2.156zm3.58 1.464l1.42 2.369c.072.14.072.209 0 .348l-1.42 2.368c-.072.14-.214.14-.285.14h-2.771c-.142 0-.214-.07-.284-.14l-1.422-2.368c-.07-.14-.07-.209 0-.348l1.422-2.369c.07-.139.213-.139.284-.139h2.771c.142-.07.213 0 .284.14z"
+      />
+    </svg>
+  );
+}
+
+export function ListPlaceholder(props) {
+  return (
+    <svg
+      width={184}
+      height={428}
+      viewBox="0 0 184 428"
+      fill="currentColor"
+      {...props}
+    >
+      <rect x={40} y={6} width={144} height={20} rx={10} />
+      <circle cx={16} cy={16} r={16} />
+      <rect x={40} y={50} width={144} height={20} rx={10} opacity={0.9} />
+      <circle cx={16} cy={60} r={16} opacity={0.9} />
+      <rect x={40} y={94} width={144} height={20} rx={10} opacity={0.8} />
+      <circle cx={16} cy={104} r={16} opacity={0.8} />
+      <rect x={40} y={138} width={144} height={20} rx={10} opacity={0.7} />
+      <circle cx={16} cy={148} r={16} opacity={0.7} />
+      <rect x={40} y={182} width={144} height={20} rx={10} opacity={0.6} />
+      <circle cx={16} cy={192} r={16} opacity={0.6} />
+      <rect x={40} y={226} width={144} height={20} rx={10} opacity={0.5} />
+      <circle cx={16} cy={236} r={16} opacity={0.5} />
+      <rect x={40} y={270} width={144} height={20} rx={10} opacity={0.4} />
+      <circle cx={16} cy={280} r={16} opacity={0.4} />
+      <rect x={40} y={314} width={144} height={20} rx={10} opacity={0.3} />
+      <circle cx={16} cy={324} r={16} opacity={0.3} />
+      <rect x={40} y={358} width={144} height={20} rx={10} opacity={0.2} />
+      <circle cx={16} cy={368} r={16} opacity={0.2} />
+      <rect x={40} y={402} width={144} height={20} rx={10} opacity={0.1} />
+      <circle cx={16} cy={412} r={16} opacity={0.1} />
+    </svg>
+  );
+}

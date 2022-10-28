@@ -19,7 +19,7 @@ export default function BottomBar() {
         </div>
         <div className="flex flex-col items-start justify-center py-1 pl-2">
           <div className="w-[76px] text-sm text-white leading-[18px] font-[600] truncate">Xuefeng Wu</div>
-          <div className="w-[76px] text-[12px] font-[400] leading-[13px] text-gray-200">#1111</div>
+          <div className="w-[76px] text-[12px] font-[400] leading-[13px] text-gray-200">#????</div>
         </div>
       </div>
       {/* Right part */}
