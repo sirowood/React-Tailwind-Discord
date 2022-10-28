@@ -132,7 +132,19 @@ export default function Dashboard() {
 						</div>
 					</div>
 				</div>
+
 				{/* Body */}
+				<div className="flex flex-row w-full h-full">
+					<div className="flex flex-col items-center justify-center grow">
+						<div>Img</div>
+						<div>No one&apos;s around to play with Wumpus.</div>
+					</div>
+					<div className="flex flex-col w-[360px] ml-0.5 border-l-[1px] border-l-gray-550/[0.48] py-2 pl-4 pr-2">
+						<div>Active Now</div>
+						<div>It&apos;s quiet for now...</div>
+						<div>When a friend starts an activity – like playing a game or hanging out on voice – we'll show it here!</div>
+					</div>
+				</div>
 			</div>
 		</>
 	);

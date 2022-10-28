@@ -41,6 +41,7 @@ module.exports = {
 			},
 			screens: {
 				special: '941px',
+				'special-lg': '1201px',
 			},
 		},
 	},
