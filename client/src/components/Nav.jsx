@@ -14,14 +14,14 @@ export default function Nav() {
 	return (
 		<div className="flex flex-col flex-shrink-0 p-3 space-y-2 overflow-y-auto bg-gray-900">
 			<Link to="/me" className="relative block group">
-				<div className="absolute flex items-center h-full -left-3">
+				<div className="absolute flex items-center h-full -left-4">
 					<div
 						className={`${
 							pathname === '/me'
 								? 'h-10'
 								: 'h-5 scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100'
 						}
-						w-1 bg-white rounded-r
+						w-2 bg-white rounded-r
 						transition-all duration-200 origin-left`}
 					/>
 				</div>
@@ -35,7 +35,7 @@ export default function Nav() {
 							bg-gray-700 text-gray-100 w-12 h-12
 							flex items-center justify-center 
 							hover:cursor-pointer
-							transition-all duration-200 overflow-hidden`}
+							transition-all duration-200`}
 					>
 						<DiscordIcon className="h-5 w-7" />
 					</div>
@@ -67,14 +67,14 @@ export default function Nav() {
 
 			{/* Explore Icon */}
 			<Link to="/explore" className="relative block group">
-				<div className="absolute flex items-center h-full -left-3">
+				<div className="absolute flex items-center h-full -left-4">
 					<div
 						className={`${
 							pathname === '/explore'
 								? 'h-10'
 								: 'h-5 scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100'
 						}
-						w-1 bg-white rounded-r
+						w-2 bg-white rounded-r
 						transition-all duration-200 origin-left`}
 					/>
 				</div>
@@ -88,7 +88,7 @@ export default function Nav() {
 							w-12 h-12
 							flex items-center justify-center 
 							hover:cursor-pointer
-							transition-all duration-200 overflow-hidden`}
+							transition-all duration-200`}
 					>
 						<Explore className="w-6 h-6" />
 					</div>
@@ -104,14 +104,14 @@ function NavLink({ href, children }) {
 
 	return (
 		<Link to={href} className="relative block group">
-			<div className="absolute flex items-center h-full -left-3">
+			<div className="absolute flex items-center h-full -left-4">
 				<div
 					className={`${
 						active
 							? 'h-10'
 							: 'h-5 scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100'
 					}
-					w-1 bg-white rounded-r
+					w-2 bg-white rounded-r
 					transition-all duration-200 origin-left`}
 				/>
 			</div>
