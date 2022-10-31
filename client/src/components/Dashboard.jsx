@@ -4,12 +4,13 @@ import {
  Friends, Nitro, Add, ListPlaceholder,
  AddMessage, Inbox, QuestionCircle,
 } from './icons';
+import LonelyWumpus from '../../public/lonelyWumpus.png';
 
 export default function Dashboard() {
 	return (
 		<>
 			{/* The middle part */}
-			<div className="flex flex-col flex-shrink-0 min-w-0 overflow-x-hidden bg-gray-800 w-60">
+			<div className="flex flex-col flex-shrink-0 min-w-0 overflow-x-hidden bg-gray-800 select-none w-60">
 				{/* Header */}
 				<div className="flex items-center h-12 px-[10px] w-full shadow-sm">
 					<button
@@ -63,7 +64,7 @@ export default function Dashboard() {
 			</div>
 
 			{/* The right part */}
-			<div className="flex flex-col w-full min-w-0 overflow-x-hidden bg-gray-700">
+			<div className="flex flex-col w-full min-w-0 overflow-x-hidden bg-gray-700 select-none">
 				{/* Header */}
 				<div className="flex flex-row items-center justify-between flex-shrink-0 h-12 px-2 shadow-sm">
 					{/* Left shrinkable part */}
@@ -135,9 +136,9 @@ export default function Dashboard() {
 
 				{/* Body */}
 				<div className="flex flex-row w-full h-full">
-					<div className="flex flex-col items-center justify-center grow">
-						<div>Img</div>
-						<div>No one&apos;s around to play with Wumpus.</div>
+					<div className="flex flex-col items-center justify-center grow max-w-[440px] mx-auto">
+						<div className="max-w-[421px] max-h-[218px] h-full w-full mb-10 bg-center bg-cover" style={{ backgroundImage: `url(${LonelyWumpus})` }} />
+						<div className="flex-shrink-0 mt-2 leading-5 text-center text-gray-250">No one&apos;s around to play with Wumpus.</div>
 					</div>
 					<div className="hidden special-lg:block w-[360px] flex-shrink-0">
 						<div className="flex flex-col ml-0.5 border-l-[1px] border-l-gray-550/[0.48] p-4 h-full">
