@@ -95,7 +95,7 @@ export default function Dashboard() {
 						{/* Icons */}
 						<div className="flex flex-row items-center text-gray-200">
 							<div className="relative group">
-								<AddMessage className="hidden w-6 h-6 mx-2 hover:cursor-pointer special:block" />
+								<AddMessage className="hidden w-6 h-6 mx-2 text-gray-100 hover:cursor-pointer special:block" />
 								<div className="hidden group-hover:block absolute border-[5px] translate-x-4 top-[18px] translate-y-1 border-t-transparent border-x-transparent border-b-gray-1000" />
 								<div
 									className="hidden group-hover:block hover:cursor-default shadow-lg
@@ -139,12 +139,16 @@ export default function Dashboard() {
 						<div>Img</div>
 						<div>No one&apos;s around to play with Wumpus.</div>
 					</div>
-					<div className="flex flex-col w-[358px] ml-0.5 border-l-[1px] border-l-gray-550/[0.48] p-4 pr-2 flex-shrink-0">
-						<div>Active Now</div>
-						<div>It&apos;s quiet for now...</div>
-						<div>
-							When a friend starts an activity -
-							like playing a game or hanging out on voice - we&apos;ll show it here!
+					<div className="hidden special-lg:block w-[360px] flex-shrink-0">
+						<div className="flex flex-col ml-0.5 border-l-[1px] border-l-gray-550/[0.48] p-4 h-full">
+							<div className="mt-2 mb-4 text-white font-title text-[20px] font-[700] leading-6">Active Now</div>
+							<div className="flex flex-col items-center p-4">
+								<div className="text-[17px] leading-[22px] font-title font-[700] mb-1 text-white">It&apos;s quiet for now...</div>
+								<div className="text-[14px] leading-[18px] font-[400] text-gray-200 text-center">
+									When a friend starts an activity –
+									like playing a game or hanging out on voice – we&apos;ll show it here!
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
