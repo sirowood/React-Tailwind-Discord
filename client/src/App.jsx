@@ -14,7 +14,7 @@ import './app.css';
 export default function App() {
 	return (
 		<Router>
-			<div className="flex h-screen overflow-x-hidden text-gray-100">
+			<div className="flex h-screen overflow-x-hidden text-gray-100 select-none">
 				<Nav />
 				<Routes>
 					<Route path="/servers/:id/*" element={<Server />} />

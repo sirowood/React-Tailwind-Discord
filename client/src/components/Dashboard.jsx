@@ -10,7 +10,7 @@ export default function Dashboard() {
 	return (
 		<>
 			{/* The middle part */}
-			<div className="flex flex-col flex-shrink-0 min-w-0 overflow-x-hidden bg-gray-800 select-none w-60">
+			<div className="flex flex-col flex-shrink-0 min-w-0 overflow-x-hidden bg-gray-800 w-60">
 				{/* Header */}
 				<div className="flex items-center h-12 px-[10px] w-full shadow-sm">
 					<button
@@ -64,7 +64,7 @@ export default function Dashboard() {
 			</div>
 
 			{/* The right part */}
-			<div className="flex flex-col w-full min-w-0 overflow-x-hidden bg-gray-700 select-none">
+			<div className="flex flex-col w-full min-w-0 overflow-x-hidden bg-gray-700">
 				{/* Header */}
 				<div className="flex flex-row items-center justify-between flex-shrink-0 h-12 px-2 shadow-sm">
 					{/* Left shrinkable part */}
