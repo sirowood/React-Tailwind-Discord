@@ -65,7 +65,7 @@ export default function Dashboard() {
 			{/* The right part */}
 			<div className="flex flex-col w-full min-w-0 overflow-x-hidden bg-gray-700">
 				{/* Header */}
-				<div className="flex flex-row items-center justify-between h-12 px-2 shadow-sm">
+				<div className="flex flex-row items-center justify-between flex-shrink-0 h-12 px-2 shadow-sm">
 					{/* Left shrinkable part */}
 					<div className="flex flex-row items-center overflow-x-hidden">
 						{/* Friends */}
@@ -139,10 +139,13 @@ export default function Dashboard() {
 						<div>Img</div>
 						<div>No one&apos;s around to play with Wumpus.</div>
 					</div>
-					<div className="flex flex-col w-[360px] ml-0.5 border-l-[1px] border-l-gray-550/[0.48] py-2 pl-4 pr-2">
+					<div className="flex flex-col w-[358px] ml-0.5 border-l-[1px] border-l-gray-550/[0.48] p-4 pr-2 flex-shrink-0">
 						<div>Active Now</div>
 						<div>It&apos;s quiet for now...</div>
-						<div>When a friend starts an activity – like playing a game or hanging out on voice – we'll show it here!</div>
+						<div>
+							When a friend starts an activity -
+							like playing a game or hanging out on voice - we&apos;ll show it here!
+						</div>
 					</div>
 				</div>
 			</div>
