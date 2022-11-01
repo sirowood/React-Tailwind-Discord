@@ -5,7 +5,7 @@ import discordPng from '../../public/servers/discord.png';
 
 export default function BottomBar() {
   return (
-    <div className="w-60 h-[52px] flex-shrink-0 px-2 mb-px bg-gray-850 flex items-center justify-between">
+    <div className="z-50 w-60 h-[52px] flex-shrink-0 px-2 mb-px bg-gray-850 flex items-center justify-between">
       {/* Left part */}
       <div className="flex flex-row -ml-0.5 mr-2 pl-0.5 w-[122px] items-center hover:cursor-pointer hover:bg-gray-650 rounded group">
         {/* Discord icon with a dot */}

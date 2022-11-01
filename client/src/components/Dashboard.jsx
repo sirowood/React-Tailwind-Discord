@@ -11,22 +11,22 @@ export default function Dashboard() {
 		<>
 			{/* The middle part */}
 			<div className="flex flex-col flex-shrink-0 min-w-0 bg-gray-800 w-60">
-				{/* Header */}
-				<div className="flex items-center h-12 px-[10px] w-full shadow-sm">
-					<button
-						type="button"
-						className="w-full px-[6px] py-px bg-gray-900 rounded h-7 text-[14px] font-[500] leading-6 text-gray-250 text-left hover:cursor-pointer"
-					>
-						Find or start a conversation
-					</button>
-				</div>
+				{/* Upper */}
+				<div className="flex flex-col flex-shrink-1 h-[calc(100%-53px)]">
+					{/* Header */}
+					<div className="flex items-center h-12 px-[10px] w-full shadow-sm flex-shrink-0">
+						<button
+							type="button"
+							className="w-full px-[6px] py-px bg-gray-900 rounded h-7 text-[14px] font-[500] leading-6 text-gray-250 text-left hover:cursor-pointer"
+						>
+							Find or start a conversation
+						</button>
+					</div>
 
-				{/* Body */}
-				<div className="flex flex-col h-[calc(100%-48px)] justify-between">
-					{/* Body content */}
-					<div className="overflow-y-auto text-gray-300 font-[500] flex-shrink-1 w-[232px]">
-						<div className="h-[9px]" />
-						<div className="flex flex-row py-px ml-2 mb-0.5 rounded active:bg-gray-550/60 hover:bg-gray-550/40 hover:text-gray-100 hover:cursor-pointer h-[42px] items-center pr-2 space-x-4 active:text-white">
+					{/* Body */}
+					<div className="flex flex-col overflow-y-auto text-gray-300 font-[500] flex-shrink-1 w-[232px]">
+						<div className="h-[9px] min-h-[9px]" />
+						<div className="flex flex-row py-px ml-2 mb-0.5 rounded active:bg-gray-550/60 hover:bg-gray-550/40 hover:text-gray-100 hover:cursor-pointer min-h-[42px] h-[42px] items-center pr-2 space-x-4 active:text-white">
 							<div className="ml-3">
 								<Friends className="w-6 h-6" />
 							</div>
@@ -35,7 +35,7 @@ export default function Dashboard() {
 							</div>
 						</div>
 
-						<div className="flex flex-row py-px ml-2 mb-0.5 rounded active:bg-gray-550/60 hover:bg-gray-550/40 hover:text-gray-100 hover:cursor-pointer h-[42px] items-center pr-2 space-x-4 active:text-white">
+						<div className="flex flex-row py-px ml-2 mb-0.5 rounded active:bg-gray-550/60 hover:bg-gray-550/40 hover:text-gray-100 hover:cursor-pointer min-h-[42px] h-[42px] items-center pr-2 space-x-4 active:text-white">
 							<div className="ml-3">
 								<Nitro className="w-6 h-6" />
 							</div>
@@ -44,7 +44,7 @@ export default function Dashboard() {
 							</div>
 						</div>
 
-						<div className="flex flex-row items-center h-10 pt-[14px] pr-2 pb-1 pl-[18px] justify-between group">
+						<div className="flex flex-row items-center h-10 pt-[14px] pr-2 pb-1 pl-[18px] justify-between group flex-shrink-0">
 							<span className="font-title text-[12px] leading-4 tracking-[.24px] group-hover:text-gray-100 group-hover:cursor-default">DIRECT MESSAGES</span>
 							<div>
 								<Add className="w-4 h-4 mr-0.5 text-white hover:cursor-pointer" />
@@ -55,12 +55,10 @@ export default function Dashboard() {
 							<ListPlaceholder />
 						</div>
 					</div>
-
-					{/* Body bottom */}
-					<div className="flex-shrink-0">
-						<BottomBar />
-					</div>
 				</div>
+
+				{/* Bottom */}
+				<BottomBar />
 			</div>
 
 			{/* The right part */}
@@ -96,7 +94,7 @@ export default function Dashboard() {
 						{/* Icons */}
 						<div className="flex flex-row items-center text-gray-200">
 							<div className="relative group">
-								<AddMessage className="hidden w-6 h-6 mx-2 text-gray-100 hover:cursor-pointer special:block" />
+								<AddMessage className="hidden w-6 h-6 mx-2 hover:cursor-pointer hover:text-gray-100 special:block" />
 								<div className="hidden group-hover:block absolute border-[5px] translate-x-4 top-[18px] translate-y-1 border-t-transparent border-x-transparent border-b-gray-1000" />
 								<div
 									className="hidden group-hover:block hover:cursor-default shadow-lg
