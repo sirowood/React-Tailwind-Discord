@@ -30,27 +30,29 @@ export default function Server() {
 	}
 
 	return (
-		<div className="flex flex-row flex-1 flex-shrink min-w-0 overflow-x-hidden">
-			<div className="flex flex-col bg-gray-800 w-60">
-				{/* Header of channel */}
-				<button
-					type="button"
-					className="h-12 px-4 flex items-center flex-shrink-0
-						text-white text-[15px] font-title
-						shadow-sm hover:bg-gray-550/[0.4] transition"
-				>
-					<div className="relative w-4 h-4 mr-1">
-						<Icons.Verified className="absolute w-4 h-4 text-gray-550" />
-						<Icons.Check className="absolute w-4 h-4" />
-					</div>
-					<span className="truncate">{server.label}</span>
-					<Icons.Chevron className="w-[18px] h-[18px] ml-auto opacity-80" />
-				</button>
+		<>
+			{/* The middle part */}
+			<div className="flex flex-col flex-shrink-0 min-w-0 bg-gray-800 w-60">
+				{/* Upper */}
+				<div className="flex flex-col flex-shrink-1 h-[calc(100%-53px)]">
+					{/* Header */}
+					<button
+						type="button"
+						className="h-12 px-4 flex items-center flex-shrink-0
+							text-white text-[15px] font-title
+							shadow-sm hover:bg-gray-550/[0.4] transition"
+					>
+						<div className="relative w-4 h-4 mr-1">
+							<Icons.Verified className="absolute w-4 h-4 text-gray-550" />
+							<Icons.Check className="absolute w-4 h-4" />
+						</div>
+						<span className="truncate">{server.label}</span>
+						<Icons.Chevron className="w-[18px] h-[18px] ml-auto opacity-80" />
+					</button>
 
-				{/* Body of channel */}
-				<div className="flex flex-col justify-between h-[calc(100%-48px)]">
+					{/* Body */}
+					<div className="flex flex-col overflow-y-auto text-gray-300 font-medium mt-3 mr-2 space-y-[21px] flex-shrink-1 w-[232px]">
 					{/* Section of body */}
-					<div className="flex flex-col text-gray-300 overflow-y-auto font-medium mt-3 mr-2 space-y-[21px] flex-shrink-1">
 						{server.categories.map((category) => (
 							<div key={category.id}>
 								{category.label && (
@@ -85,20 +87,20 @@ export default function Server() {
 							</div>
 						))}
 					</div>
-					{/* Bottom bar */}
-					<div className="flex-shrink-0">
-						<BottomBar />
-					</div>
 				</div>
+
+				{/* Bottom bar */}
+				<BottomBar />
 			</div>
 
+			{/* The right part */}
 			<Routes>
 				<Route
 					path="/channels/:cid"
 					element={<MessageComponent channel={channel} />}
 				/>
 			</Routes>
-		</div>
+		</>
 	);
 }
 
