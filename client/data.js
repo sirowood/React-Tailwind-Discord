@@ -283,10 +283,17 @@ export default [
 				id: 9,
 				label: 'Text Channels',
 				channels: [
-					{ id: 28, label: 'general', messages: getMessages() },
 					{
- id: 29, label: 'graphql', unread: true, messages: getMessages(),
-},
+						id: 28,
+						label: 'general',
+						messages: getMessages()
+					},
+					{
+						id: 29,
+						label: 'graphql',
+						unread: true,
+						messages: getMessages()
+					},
 					{
 						id: 30,
 						label: 'typescript',

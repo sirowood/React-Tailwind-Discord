@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	entry: './src/index.jsx',
+	entry: './src/index.tsx',
 	output: {
 		publicPath: '/',
 		path: path.resolve(__dirname, '../server/dist'),
@@ -10,7 +10,7 @@ module.exports = {
 		clean: true,
 	},
 	resolve: {
-		extensions: ['.js', '.jsx'],
+		extensions: ['.tsx', '.ts', '.js', '.jsx'],
 	},
 	devServer: {
 		port: 3000,
@@ -19,9 +19,10 @@ module.exports = {
 		static: path.resolve(__dirname, 'dist'),
 		historyApiFallback: true,
 	},
-	devtool: 'source-map',
+	devtool: 'inline-source-map',
 	module: {
 		rules: [
+			/*
 			{
 				test: /\.jsx?$/,
 				exclude: /node_modules/,
@@ -31,6 +32,12 @@ module.exports = {
 						presets: ['@babel/preset-env', '@babel/preset-react'],
 					},
 				},
+			},
+			*/
+			{
+				test: /\.tsx?$/,
+				use: 'ts-loader',
+				exclude: /node_modules/,
 			},
 			{
 				test: /\.css$/i,

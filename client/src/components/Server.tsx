@@ -1,32 +1,61 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import {
  useParams, Routes, Route, Link, useMatch,
 } from 'react-router-dom';
 import data from '../../data';
 import * as Icons from './icons';
+import IconList from './icons';
 import BottomBar from './BottomBar';
+
+interface SingleMessageProps {
+  avatarUrl: string;
+  user: string;
+  date: string;
+  text: string;
+};
+
+interface SingleChannelProps {
+  id: number;
+  label: string;
+  description?: string;
+  icon?: string;
+  unread?: boolean;
+  messages: SingleMessageProps[];
+};
+
+interface SingleCategoryProps {
+  id: number;
+  label: string;
+  icon?: string;
+  channels: SingleChannelProps[];
+};
+
+interface ServerProps {
+  id: number;
+  label: string;
+  img: string;
+  categories: SingleCategoryProps[];
+};
 
 export default function Server() {
 	const { id } = useParams();
-	const cid = useParams()['*'].split('/')[1];
+	const [closedCategories, setClosedCategories] = useState<number[]>([]);
 
-	const server = data.find((item) => item.id === +id);
+	const cid= useParams()['*']!.split('/')[1];
+
+	const server: ServerProps = data.find((item) => item.id === +id!)!;
 	const channel = server.categories
 		.map((category) => category.channels)
 		.flat()
 		.find((c) => +c.id === +cid);
 
-	const [closedCategories, setClosedCategories] = useState([]);
-
-	function toggleCategory(categoryId) {
+	function toggleCategory(categoryId: number) {
 		setClosedCategories(
 			closedCategories.includes(categoryId)
 				? closedCategories.filter((i) => i !== categoryId)
 				: [...closedCategories].concat(categoryId),
 		);
-	}
+	};
 
 	return (
 		<>
@@ -52,7 +81,7 @@ export default function Server() {
 					{/* Body */}
 					<div className="flex flex-col overflow-y-auto text-gray-300 font-medium mt-3 mr-2 space-y-[21px] flex-shrink-1 w-[232px]">
 					{/* Section of body */}
-						{server.categories.map((category) => (
+						{server.categories.map((category: SingleCategoryProps) => (
 							<div key={category.id}>
 								{category.label && (
 									<button
@@ -96,15 +125,19 @@ export default function Server() {
 			<Routes>
 				<Route
 					path="/channels/:cid"
-					element={<MessageComponent channel={channel} />}
+					element={<MessageComponent channel={channel!} />}
 				/>
 			</Routes>
 		</>
 	);
-}
+};
 
-function ChannelLink({ channel }) {
-	const Icon = channel.icon ? Icons[channel.icon] : Icons.Hashtag;
+interface ChannelLinkProps {
+  channel: SingleChannelProps;
+};
+
+function ChannelLink({ channel }: ChannelLinkProps) {
+	const Icon = channel.icon ? IconList[channel.icon] : Icons.Hashtag;
 	const match = useMatch('/servers/:id/channels/:cid');
 	const cid = match?.params.cid;
 	const active = channel.id.toString() === cid;
@@ -137,7 +170,11 @@ function ChannelLink({ channel }) {
 	);
 }
 
-function MessageComponent({ channel }) {
+interface MessageComponentProps {
+  channel: SingleChannelProps;
+};
+
+function MessageComponent({ channel }: MessageComponentProps) {
 	return (
 		<div className="flex flex-col flex-1 overflow-hidden bg-gray-700">
 			<div className="flex items-center h-12 px-2 shadow-sm">
@@ -217,7 +254,11 @@ function MessageComponent({ channel }) {
 	);
 }
 
-function MessageWithUser({ message }) {
+interface MessageProps {
+  message: SingleMessageProps;
+};
+
+function MessageWithUser({ message }: MessageProps) {
 	return (
 		<div className="leading-[22px] mt-[17px] flex pl-4 pr-16 py-0.5 hover:bg-gray-900/[.07]">
 			<img
@@ -240,7 +281,7 @@ function MessageWithUser({ message }) {
 	);
 }
 
-function Message({ message }) {
+function Message({ message }: MessageProps) {
 	return (
 		<div className="pl-4 pr-16 py-0.5 hover:bg-gray-950/[.07] leading-[22px]">
 			<p className="text-gray-100 pl-14">{message.text}</p>
