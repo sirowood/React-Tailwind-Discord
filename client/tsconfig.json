@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
-    "sourceMap": true,
+    "sourceMap": false,
     "target": "es5",
     "lib": [
       "dom",
@@ -20,9 +20,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
-    "jsx": "react-jsx"
+    "noImplicitAny": false,
+    "jsx": "react"
   },
-  "include": [
-    "./src", "./public",
-  ],
 }

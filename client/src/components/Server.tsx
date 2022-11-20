@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
  useParams, Routes, Route, Link, useMatch,
 } from 'react-router-dom';
-import data from '../../data';
+import data from '../data';
 import * as Icons from './icons';
 import IconList from './icons';
 import BottomBar from './BottomBar';
@@ -38,12 +38,12 @@ interface ServerProps {
 };
 
 export default function Server() {
-	const { id } = useParams();
+	const id = useParams().id as string;
 	const [closedCategories, setClosedCategories] = useState<number[]>([]);
 
-	const cid= useParams()['*']!.split('/')[1];
+	const cid = useParams()['*']?.split('/')[1] as string;
 
-	const server: ServerProps = data.find((item) => item.id === +id!)!;
+	const server: ServerProps = data.find((item) => item.id === +id) as ServerProps;
 	const channel = server.categories
 		.map((category) => category.channels)
 		.flat()
@@ -125,7 +125,7 @@ export default function Server() {
 			<Routes>
 				<Route
 					path="/channels/:cid"
-					element={<MessageComponent channel={channel!} />}
+					element={<MessageComponent channel={channel as SingleChannelProps} />}
 				/>
 			</Routes>
 		</>

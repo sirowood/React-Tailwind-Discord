@@ -10,7 +10,7 @@ module.exports = {
 		clean: true,
 	},
 	resolve: {
-		extensions: ['.tsx', '.ts', '.js', '.jsx'],
+		extensions: ['.tsx', '.ts', '.js'],
 	},
 	devServer: {
 		port: 3000,
@@ -19,21 +19,8 @@ module.exports = {
 		static: path.resolve(__dirname, 'dist'),
 		historyApiFallback: true,
 	},
-	devtool: 'inline-source-map',
 	module: {
 		rules: [
-			/*
-			{
-				test: /\.jsx?$/,
-				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: ['@babel/preset-env', '@babel/preset-react'],
-					},
-				},
-			},
-			*/
 			{
 				test: /\.tsx?$/,
 				use: 'ts-loader',

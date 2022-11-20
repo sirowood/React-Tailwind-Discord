@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Discord as DiscordIcon, Add, Explore } from './icons';
-import data from '../../data';
+import data from '../data';
 
 export default function Nav() {
 	const { pathname } = useLocation();

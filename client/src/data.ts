@@ -2,7 +2,7 @@ import { faker as Faker } from '@faker-js/faker';
 
 Faker.seed(123);
 
-function getRandomInt(min, max) {
+function getRandomInt(min: number, max: number) {
 	// The maximum is exclusive and the minimum is inclusive
 	return Math.floor(
 		Math.random() * (Math.floor(max) - Math.ceil(min)) + Math.ceil(min),
