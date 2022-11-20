@@ -1,7 +1,8 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Discord as DiscordIcon, Add, Explore } from './icons';
 import data from '../data';
+import { NavLinkProps } from '../types';
 
 export default function Nav() {
 	const { pathname } = useLocation();
@@ -93,10 +94,6 @@ export default function Nav() {
 	);
 }
 
-interface NavLinkProps {
-  href: string;
-  children: ReactElement;
-};
 function NavLink({ href, children }: NavLinkProps) {
 	const { pathname } = useLocation();
 	const active = href.split('/')[2] === pathname.split('/')[2];

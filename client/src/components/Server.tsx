@@ -6,36 +6,14 @@ import data from '../data';
 import * as Icons from './icons';
 import IconList from './icons';
 import BottomBar from './BottomBar';
-
-interface SingleMessageProps {
-  avatarUrl: string;
-  user: string;
-  date: string;
-  text: string;
-};
-
-interface SingleChannelProps {
-  id: number;
-  label: string;
-  description?: string;
-  icon?: string;
-  unread?: boolean;
-  messages: SingleMessageProps[];
-};
-
-interface SingleCategoryProps {
-  id: number;
-  label: string;
-  icon?: string;
-  channels: SingleChannelProps[];
-};
-
-interface ServerProps {
-  id: number;
-  label: string;
-  img: string;
-  categories: SingleCategoryProps[];
-};
+import {
+	SingleChannelProps,
+	SingleCategoryProps,
+	ServerProps,
+	ChannelLinkProps,
+	MessageComponentProps,
+	MessageProps,
+} from '../types';
 
 export default function Server() {
 	const id = useParams().id as string;
@@ -132,10 +110,6 @@ export default function Server() {
 	);
 };
 
-interface ChannelLinkProps {
-  channel: SingleChannelProps;
-};
-
 function ChannelLink({ channel }: ChannelLinkProps) {
 	const Icon = channel.icon ? IconList[channel.icon] : Icons.Hashtag;
 	const match = useMatch('/servers/:id/channels/:cid');
@@ -170,9 +144,6 @@ function ChannelLink({ channel }: ChannelLinkProps) {
 	);
 }
 
-interface MessageComponentProps {
-  channel: SingleChannelProps;
-};
 
 function MessageComponent({ channel }: MessageComponentProps) {
 	return (
@@ -253,10 +224,6 @@ function MessageComponent({ channel }: MessageComponentProps) {
 		</div>
 	);
 }
-
-interface MessageProps {
-  message: SingleMessageProps;
-};
 
 function MessageWithUser({ message }: MessageProps) {
 	return (

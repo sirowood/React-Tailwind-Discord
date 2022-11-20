@@ -1,9 +1,10 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import {
  Explore as ExploreIcon, Gaming, Music, Education,
  Science, Entertainment, StudentHub,
 } from './icons';
 import BottomBar from './BottomBar';
+import { ExploreRowProps } from '../types';
 
 const exploreData = [
 	{
@@ -36,12 +37,6 @@ const exploreData = [
 		new: true,
 	},
 ];
-
-interface ExploreRowProps {
-  rowName: string;
-  children: ReactElement;
-  isNew?: boolean;
-}
 
 function ExploreRow({ rowName, children, isNew }: ExploreRowProps) {
 	return (
