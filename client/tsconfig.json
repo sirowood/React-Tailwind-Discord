@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
-    "sourceMap": false,
     "target": "es5",
     "lib": [
       "dom",
@@ -23,4 +22,7 @@
     "noImplicitAny": false,
     "jsx": "react"
   },
+  "include": [
+    "./src", "./public",
+  ],
 }

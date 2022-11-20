@@ -2,7 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const forms = require('@tailwindcss/forms');
 
 module.exports = {
-	content: ['./src/**/*.{js,jsx}', './public/index.html'],
+	content: ['./src/**/*.{ts,tsx}', './public/index.html'],
 	theme: {
 		boxShadow: {
 			sm: 'rgba(4, 4, 5, 0.2) 0px 1px 0px 0px, rgba(6, 6, 7, 0.05) 0px 1.5px 0px 0px, rgba(4, 4, 5, 0.05) 0px 2px 0px 0px',

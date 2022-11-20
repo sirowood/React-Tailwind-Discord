@@ -11,7 +11,7 @@ app.use('/health', (_req, res) => {
 });
 
 app.use('*', (_req, res) => {
-  res.redirect(301, '/');
+  res.redirect('/');
 });
 
 const PORT = process.env.PORT || 3001;
